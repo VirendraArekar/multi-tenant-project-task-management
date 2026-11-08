@@ -1,0 +1,12 @@
+.git
+.github
+node_modules
+.next
+backend/target
+frontend/node_modules
+frontend/.next
+frontend/e2e
+frontend/playwright-report
+frontend/test-results
+*.log
+.DS_Store
