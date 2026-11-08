@@ -90,22 +90,30 @@ The database automatically seeds 100+ realistic engineering tasks across Kanban 
 3. **Invitations**:
    - Tokenized invite links with 7-day TTL (no external mail dependency: links display in UI with one-click copy).
    - Public invite validation endpoint (`GET /api/v1/invites/{token}`) and authenticated acceptance flow (`POST /api/v1/invites/{token}/accept`).
-4. **Projects & Kanban Board**:
-   - Interactive drag-and-drop between columns (`TODO`, `IN_PROGRESS`, `IN_REVIEW`, `DONE`).
+4. **Jira-Style Agile Kanban Board & Ergonomics**:
+   - Interactive drag-and-drop between columns (`TODO`, `IN_PROGRESS`, `IN_REVIEW`, `DONE`) with active column highlight rings and card elevation.
+   - **Jira Issue Keys & Quick-Filters**: Instant search by title/description, 1-click **"Only my issues"** toggle, Assignee and Priority dropdown filters, and active issue counters (`Showing X of Y issues`).
    - Fractional positioning math (`position = (prev + next) / 2.0`) prevents bulk re-indexing.
    - **Optimistic Concurrency Control (`@Version`)**: Detects card move collisions with instant HTTP 409 responses, triggering frontend optimistic rollback and sync.
-5. **Transactional Outbox & Kafka Streams**:
+5. **Dark & Light Mode Theme Support**:
+   - Universal theme switcher (Sun / Moon) accessible from the header and sidebar.
+   - Smooth CSS transitions with `localStorage` persistence and system color preference matching across all 13 pages, drawers, modals, tables, and auth forms.
+6. **Dynamic Dashboard Analytics & SVG Charts**:
+   - **Pipeline Donut Gauge**: Pure SVG radial chart tracking completion across columns with center resolution percentage.
+   - **Sprint Velocity Wave Chart**: Smooth SVG area chart with gradient fills and interactive hover data points tracking daily throughput.
+   - **Team Workload Capacity**: Real-time progress meters displaying task distribution and workload statuses (*Balanced*, *Heavy*) per engineer.
+7. **Transactional Outbox & Kafka Streams**:
    - Domain events (`task-events`, `comment-events`, `membership-events`, `overdue-events`) are written atomically to `outbox_events` table within the business JPA transaction.
    - `OutboxRelayScheduler` polls pending records and routes messages to Kafka with partition key = `organization_id`.
    - `EventConsumerService` uses `processed_events` table to enforce **idempotent deduplication**, routing failed poison messages to `teamboard-dead-letter`.
-6. **Task Details & Collaboration**:
-   - Slide-out task drawer with live description editing, priority badges, due dates, assignee assignment, and real-time comment stream.
-7. **Overdue Task Tracking**:
+8. **Task Details & Collaboration**:
+   - Jira-style slide-out task drawer with live description editing, priority badges, due dates, assignee assignment, label management, and real-time comment stream.
+9. **Overdue Task Tracking**:
    - Automated `@Scheduled` cron worker identifies non-DONE tasks past due date and fires `TASK_OVERDUE` events.
-8. **Real-Time Notifications & Audit Trail**:
+10. **Real-Time Notifications & Audit Trail**:
    - Activity log capturing immutable organization history (who did what, entity affected, timestamp).
    - In-app notification bell with unread badge counter and polling synchronization.
-9. **Distributed Rate Limiting**:
+11. **Distributed Rate Limiting**:
    - Token bucket algorithm implemented via atomic Redis Lua script.
    - Per-IP and per-user buckets with strict 10 req/min thresholds on auth endpoints, returning 429 with standard `Retry-After` headers.
 
