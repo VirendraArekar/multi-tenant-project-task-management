@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/lib/auth-context";
+import { useTheme } from "@/lib/theme-context";
 import { OrgSwitcher } from "./OrgSwitcher";
 import {
   LayoutDashboard,
@@ -16,6 +17,8 @@ import {
   Menu,
   X,
   Layers,
+  Sun,
+  Moon,
 } from "lucide-react";
 import clsx from "clsx";
 
@@ -25,15 +28,16 @@ interface AppShellProps {
 
 export function AppShell({ children }: AppShellProps) {
   const { user, currentOrg, unreadCount, logout, isLoading } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-slate-50">
+      <div className="flex items-center justify-center min-h-screen bg-slate-50 dark:bg-slate-950">
         <div className="flex flex-col items-center space-y-3">
-          <div className="w-10 h-10 border-4 border-brand-200 border-t-brand-600 rounded-full animate-spin"></div>
-          <p className="text-sm text-slate-500 font-medium">Loading TeamBoard...</p>
+          <div className="w-10 h-10 border-4 border-brand-200 border-t-brand-600 rounded-full animate-spin dark:border-brand-900 dark:border-t-brand-400"></div>
+          <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">Loading TeamBoard...</p>
         </div>
       </div>
     );
@@ -54,41 +58,61 @@ export function AppShell({ children }: AppShellProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col md:flex-row">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col md:flex-row transition-colors duration-200">
       {/* Mobile Top Header */}
-      <div className="md:hidden flex items-center justify-between bg-white border-b border-slate-200 px-4 py-3 sticky top-0 z-30">
+      <div className="md:hidden flex items-center justify-between bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 py-3 sticky top-0 z-30 transition-colors">
         <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white font-bold">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-600 to-indigo-600 flex items-center justify-center text-white font-bold shadow-sm">
             <Layers className="w-5 h-5" />
           </div>
-          <span className="font-bold text-slate-900 tracking-tight">TeamBoard</span>
+          <span className="font-bold text-slate-900 dark:text-white tracking-tight">TeamBoard</span>
         </div>
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="p-2 rounded-lg text-slate-600 hover:bg-slate-100"
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        <div className="flex items-center space-x-2">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5 text-slate-600" />}
+          </button>
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Sidebar for Desktop & Mobile Overlay */}
       <aside
         className={clsx(
-          "fixed inset-y-0 left-0 z-40 w-64 bg-white border-r border-slate-200 flex flex-col transition-transform duration-200 ease-in-out md:static md:translate-x-0",
+          "fixed inset-y-0 left-0 z-40 w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col transition-all duration-200 ease-in-out md:static md:translate-x-0",
           mobileMenuOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full"
         )}
       >
         {/* Brand Header */}
-        <div className="h-16 flex items-center px-6 border-b border-slate-100 space-x-3">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-brand-500/20">
-            <Layers className="w-5 h-5" />
+        <div className="h-16 flex items-center justify-between px-6 border-b border-slate-100 dark:border-slate-800">
+          <div className="flex items-center space-x-3">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-brand-500/20">
+              <Layers className="w-5 h-5" />
+            </div>
+            <span className="font-bold text-lg text-slate-900 dark:text-white tracking-tight">TeamBoard</span>
           </div>
-          <span className="font-bold text-lg text-slate-900 tracking-tight">TeamBoard</span>
+          <button
+            onClick={toggleTheme}
+            className="hidden md:flex p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4" />}
+          </button>
         </div>
 
         {/* Workspace Switcher */}
-        <div className="px-4 py-3 border-b border-slate-100">
+        <div className="px-4 py-3 border-b border-slate-100 dark:border-slate-800">
           <OrgSwitcher />
         </div>
 
@@ -103,18 +127,25 @@ export function AppShell({ children }: AppShellProps) {
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={clsx(
-                  "flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                  "flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all group",
                   isActive
-                    ? "bg-brand-50 text-brand-700 font-semibold"
-                    : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                    ? "bg-brand-50 dark:bg-brand-950/60 text-brand-700 dark:text-brand-300 font-semibold shadow-xs"
+                    : "text-slate-600 dark:text-slate-400 hover:bg-slate-100/70 dark:hover:bg-slate-800/70 hover:text-slate-900 dark:hover:text-slate-100"
                 )}
               >
                 <div className="flex items-center space-x-3">
-                  <Icon className={clsx("w-5 h-5", isActive ? "text-brand-600" : "text-slate-400")} />
+                  <Icon
+                    className={clsx(
+                      "w-5 h-5 transition-colors",
+                      isActive
+                        ? "text-brand-600 dark:text-brand-400"
+                        : "text-slate-400 dark:text-slate-500 group-hover:text-slate-600 dark:group-hover:text-slate-300"
+                    )}
+                  />
                   <span>{item.label}</span>
                 </div>
                 {item.badge !== undefined && (
-                  <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-bold bg-brand-600 text-white">
+                  <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-bold bg-brand-600 dark:bg-brand-500 text-white shadow-xs">
                     {item.badge}
                   </span>
                 )}
@@ -123,22 +154,38 @@ export function AppShell({ children }: AppShellProps) {
           })}
         </nav>
 
+        {/* Theme mode toggle bar in sidebar */}
+        <div className="px-4 py-2 border-t border-slate-100 dark:border-slate-800">
+          <div className="flex items-center justify-between px-2 py-1.5 rounded-lg bg-slate-100/70 dark:bg-slate-800/60 text-xs font-medium text-slate-600 dark:text-slate-400">
+            <span className="flex items-center space-x-1.5">
+              {theme === "dark" ? <Moon className="w-3.5 h-3.5 text-indigo-400" /> : <Sun className="w-3.5 h-3.5 text-amber-500" />}
+              <span>{theme === "dark" ? "Dark Theme" : "Light Theme"}</span>
+            </span>
+            <button
+              onClick={toggleTheme}
+              className="px-2 py-0.5 rounded text-xs font-semibold bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 shadow-xs hover:bg-slate-50 dark:hover:bg-slate-600 transition-colors"
+            >
+              Toggle
+            </button>
+          </div>
+        </div>
+
         {/* User Info & Logout footer */}
-        <div className="p-4 border-t border-slate-100 bg-slate-50/50">
+        <div className="p-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3 truncate">
-              <div className="w-8 h-8 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center font-bold text-xs uppercase flex-shrink-0">
+              <div className="w-8 h-8 rounded-full bg-brand-100 dark:bg-brand-900/70 text-brand-700 dark:text-brand-300 flex items-center justify-center font-bold text-xs uppercase flex-shrink-0 shadow-xs">
                 {user?.fullName?.charAt(0) || "U"}
               </div>
               <div className="truncate">
-                <p className="text-sm font-medium text-slate-900 truncate">{user?.fullName}</p>
-                <p className="text-xs text-slate-500 truncate">{user?.email}</p>
+                <p className="text-sm font-semibold text-slate-900 dark:text-slate-100 truncate">{user?.fullName}</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 truncate">{user?.email}</p>
               </div>
             </div>
             <button
               onClick={logout}
               title="Sign Out"
-              className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-200/60 transition-colors"
+              className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition-colors"
             >
               <LogOut className="w-4 h-4" />
             </button>
@@ -149,7 +196,7 @@ export function AppShell({ children }: AppShellProps) {
       {/* Mobile Backdrop */}
       {mobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-slate-900/40 z-30 md:hidden backdrop-blur-xs"
+          className="fixed inset-0 bg-slate-900/50 z-30 md:hidden backdrop-blur-xs"
           onClick={() => setMobileMenuOpen(false)}
         />
       )}
@@ -163,4 +210,3 @@ export function AppShell({ children }: AppShellProps) {
 }
 
 export default AppShell;
-

@@ -7,13 +7,13 @@ import { useAuth } from "@/lib/auth-context";
 import { apiClient, ApiError } from "@/lib/api";
 import { Invite } from "@/lib/types";
 import ErrorAlert from "@/components/ErrorAlert";
-import { LayoutGrid, CheckCircle2, AlertTriangle, ArrowRight, ShieldCheck, Mail } from "lucide-react";
+import { Layers, CheckCircle2, AlertTriangle, ArrowRight, ShieldCheck, Mail } from "lucide-react";
 
 function InviteContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const token = searchParams.get("token");
-  const { user, isAuthenticated, refreshOrganizations } = useAuth();
+  const { user, isAuthenticated, refreshOrgs } = useAuth();
 
   const [invite, setInvite] = useState<Invite | null>(null);
   const [loading, setLoading] = useState(true);
@@ -55,7 +55,7 @@ function InviteContent() {
         method: "POST",
       });
       setSuccess(true);
-      await refreshOrganizations();
+      await refreshOrgs();
       setTimeout(() => {
         router.push("/dashboard");
       }, 1500);
@@ -71,9 +71,9 @@ function InviteContent() {
 
   if (loading) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[400px]">
-        <div className="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin" />
-        <p className="mt-4 text-zinc-400 text-sm">Verifying invitation...</p>
+      <div className="flex flex-col items-center justify-center min-h-[300px]">
+        <div className="w-10 h-10 border-4 border-brand-500 border-t-transparent rounded-full animate-spin" />
+        <p className="mt-4 text-slate-500 dark:text-slate-400 text-sm">Verifying invitation...</p>
       </div>
     );
   }
@@ -81,14 +81,14 @@ function InviteContent() {
   if (error && !invite) {
     return (
       <div className="text-center py-8">
-        <div className="w-12 h-12 rounded-2xl bg-red-500/10 border border-red-500/20 text-red-400 flex items-center justify-center mx-auto mb-4">
+        <div className="w-12 h-12 rounded-2xl bg-red-50 dark:bg-red-950/50 border border-red-200 dark:border-red-900 text-red-600 dark:text-red-400 flex items-center justify-center mx-auto mb-4">
           <AlertTriangle className="w-6 h-6" />
         </div>
-        <h2 className="text-lg font-semibold text-white">Invalid Invitation</h2>
-        <p className="text-zinc-400 text-sm mt-2 max-w-sm mx-auto">{error}</p>
+        <h2 className="text-lg font-bold text-slate-900 dark:text-white">Invalid Invitation</h2>
+        <p className="text-slate-500 dark:text-slate-400 text-sm mt-2 max-w-sm mx-auto">{error}</p>
         <button
           onClick={() => router.push("/login")}
-          className="mt-6 px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-white rounded-lg text-sm font-medium transition"
+          className="mt-6 px-4 py-2 bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 text-white rounded-lg text-sm font-semibold transition-colors"
         >
           Return to Login
         </button>
@@ -99,12 +99,12 @@ function InviteContent() {
   if (success) {
     return (
       <div className="text-center py-8">
-        <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-4">
+        <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto mb-4">
           <CheckCircle2 className="w-6 h-6" />
         </div>
-        <h2 className="text-lg font-semibold text-white">Welcome to {invite?.organizationName}!</h2>
-        <p className="text-zinc-400 text-sm mt-2">
-          Invitation accepted successfully. Redirecting you to the dashboard...
+        <h2 className="text-lg font-bold text-slate-900 dark:text-white">Welcome to {invite?.organizationName}!</h2>
+        <p className="text-slate-500 dark:text-slate-400 text-sm mt-2">
+          Invitation accepted successfully. Redirecting you to the workspace dashboard...
         </p>
       </div>
     );
@@ -113,77 +113,56 @@ function InviteContent() {
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <div className="w-12 h-12 rounded-2xl bg-blue-600/10 border border-blue-500/20 text-blue-400 flex items-center justify-center mx-auto mb-4">
+        <div className="w-12 h-12 rounded-2xl bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800 text-brand-600 dark:text-brand-400 flex items-center justify-center mx-auto mb-4">
           <ShieldCheck className="w-6 h-6" />
         </div>
-        <h2 className="text-xl font-bold text-white tracking-tight">
+        <h2 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
           Join {invite?.organizationName}
         </h2>
-        <p className="text-zinc-400 text-sm mt-1">
-          <strong className="text-zinc-200">{invite?.inviterName}</strong> invited you to collaborate on TeamBoard as a <strong className="text-blue-400">{invite?.role}</strong>.
+        <p className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm mt-1">
+          <strong>{invite?.inviterName}</strong> invited you to join as <strong>{invite?.role}</strong>.
         </p>
       </div>
 
       {error && <ErrorAlert message={error} onClose={() => setError(null)} />}
 
-      <div className="bg-zinc-950/60 border border-zinc-800 rounded-xl p-4 space-y-3 text-sm">
-        <div className="flex items-center justify-between text-zinc-400">
-          <span>Target Workspace:</span>
-          <span className="font-medium text-white">{invite?.organizationName}</span>
+      <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 text-xs space-y-2">
+        <div className="flex justify-between">
+          <span className="text-slate-500 dark:text-slate-400">Target Email:</span>
+          <span className="font-mono font-medium text-slate-800 dark:text-slate-200">{invite?.email}</span>
         </div>
-        <div className="flex items-center justify-between text-zinc-400">
-          <span>Assigned Role:</span>
-          <span className="font-semibold text-blue-400">{invite?.role}</span>
-        </div>
-        <div className="flex items-center justify-between text-zinc-400">
-          <span>Invited Email:</span>
-          <span className="font-medium text-zinc-300">{invite?.email}</span>
+        <div className="flex justify-between">
+          <span className="text-slate-500 dark:text-slate-400">Assigned Role:</span>
+          <span className="font-semibold text-slate-800 dark:text-slate-200">{invite?.role}</span>
         </div>
       </div>
 
-      {!isAuthenticated ? (
-        <div className="space-y-4 pt-2">
-          <p className="text-xs text-zinc-400 text-center">
-            You must be logged in to accept this invitation.
-          </p>
-          <div className="grid grid-cols-2 gap-3">
-            <button
-              onClick={() => router.push(`/login?returnUrl=/invite/accept?token=${token}`)}
-              className="w-full py-2.5 px-4 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-sm font-medium transition text-center"
-            >
-              Log In
-            </button>
-            <button
-              onClick={() => router.push(`/register?returnUrl=/invite/accept?token=${token}`)}
-              className="w-full py-2.5 px-4 bg-zinc-800 hover:bg-zinc-700 text-white rounded-lg text-sm font-medium transition text-center border border-zinc-700"
-            >
-              Sign Up
-            </button>
-          </div>
-        </div>
+      {isAuthenticated ? (
+        <button
+          onClick={handleAccept}
+          disabled={accepting}
+          className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 rounded-lg bg-brand-600 hover:bg-brand-700 dark:bg-brand-500 dark:hover:bg-brand-600 text-white font-semibold text-sm shadow-xs transition-colors disabled:opacity-50"
+        >
+          <span>{accepting ? "Joining..." : `Accept Invite as ${user?.email}`}</span>
+          <ArrowRight className="w-4 h-4" />
+        </button>
       ) : (
-        <div className="space-y-4 pt-2">
-          <div className="bg-zinc-800/40 border border-zinc-700/60 rounded-lg p-3 text-xs text-zinc-300 flex items-center gap-2">
-            <Mail className="w-4 h-4 text-blue-400 shrink-0" />
-            <span>
-              Signed in as <strong>{user?.email}</strong>.
-            </span>
-          </div>
-
+        <div className="space-y-3">
           <button
-            onClick={handleAccept}
-            disabled={accepting}
-            className="w-full py-2.5 px-4 bg-blue-600 hover:bg-blue-500 disabled:opacity-50 text-white rounded-lg text-sm font-medium transition flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20"
+            onClick={() => router.push(`/login?redirect=/invite/accept?token=${token}`)}
+            className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 rounded-lg bg-brand-600 hover:bg-brand-700 dark:bg-brand-500 dark:hover:bg-brand-600 text-white font-semibold text-sm shadow-xs transition-colors"
           >
-            {accepting ? (
-              "Accepting..."
-            ) : (
-              <>
-                Accept Invitation
-                <ArrowRight className="w-4 h-4" />
-              </>
-            )}
+            <span>Sign In to Accept</span>
+            <ArrowRight className="w-4 h-4" />
           </button>
+          <div className="text-center">
+            <Link
+              href={`/register?email=${encodeURIComponent(invite?.email || "")}&redirect=/invite/accept?token=${token}`}
+              className="text-xs text-brand-600 dark:text-brand-400 hover:underline"
+            >
+              Don&apos;t have an account? Create one
+            </Link>
+          </div>
         </div>
       )}
     </div>
@@ -192,24 +171,21 @@ function InviteContent() {
 
 export default function AcceptInvitePage() {
   return (
-    <div className="min-h-screen bg-zinc-950 flex flex-col justify-center items-center p-4">
-      <div className="w-full max-w-md bg-zinc-900 border border-zinc-800 rounded-2xl p-6 sm:p-8 shadow-2xl">
-        <div className="flex items-center justify-center gap-2 mb-6">
-          <div className="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white font-bold shadow-lg shadow-blue-600/30">
-            <LayoutGrid className="w-5 h-5" />
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col justify-center py-12 sm:px-6 lg:px-8 transition-colors duration-200">
+      <div className="sm:mx-auto sm:w-full sm:max-w-md">
+        <div className="flex justify-center mb-4">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center text-white shadow-lg shadow-brand-500/30">
+            <Layers className="w-7 h-7" />
           </div>
-          <span className="font-bold text-xl text-white tracking-tight">TeamBoard</span>
         </div>
+      </div>
 
-        <Suspense
-          fallback={
-            <div className="flex justify-center py-12">
-              <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin" />
-            </div>
-          }
-        >
-          <InviteContent />
-        </Suspense>
+      <div className="sm:mx-auto sm:w-full sm:max-w-md px-4 sm:px-0">
+        <div className="bg-white dark:bg-slate-900 py-8 px-6 sm:px-10 shadow-xl rounded-2xl border border-slate-200 dark:border-slate-800">
+          <Suspense fallback={<div className="text-center text-sm text-slate-400 py-8">Loading...</div>}>
+            <InviteContent />
+          </Suspense>
+        </div>
       </div>
     </div>
   );

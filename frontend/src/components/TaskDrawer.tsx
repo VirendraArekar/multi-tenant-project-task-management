@@ -11,10 +11,12 @@ import {
   Tag,
   MessageSquare,
   AlertCircle,
-  Clock,
   Send,
   Trash2,
   Check,
+  CheckSquare,
+  ChevronRight,
+  Clock,
 } from "lucide-react";
 
 interface TaskDrawerProps {
@@ -147,38 +149,47 @@ export function TaskDrawer({
   };
 
   const priorityColors: Record<TaskPriority, string> = {
-    LOW: "bg-slate-100 text-slate-700",
-    MEDIUM: "bg-blue-50 text-blue-700",
-    HIGH: "bg-amber-50 text-amber-700",
-    URGENT: "bg-rose-50 text-rose-700 font-semibold",
+    LOW: "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300",
+    MEDIUM: "bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300",
+    HIGH: "bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300",
+    URGENT: "bg-rose-50 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 font-semibold",
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden bg-slate-900/40 backdrop-blur-xs flex justify-end">
-      <div className="w-full max-w-2xl bg-white h-full shadow-2xl flex flex-col transform transition-transform duration-300 ease-in-out">
-        {/* Drawer Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200">
-          <div className="flex items-center space-x-2">
-            <span className="text-xs font-mono text-slate-400">TASK-{task?.id}</span>
+    <div className="fixed inset-0 z-50 overflow-hidden bg-slate-900/50 backdrop-blur-xs flex justify-end animate-in fade-in duration-200">
+      <div className="w-full max-w-2xl bg-white dark:bg-slate-900 h-full shadow-2xl flex flex-col border-l border-slate-200 dark:border-slate-800 transform transition-transform duration-300 ease-in-out">
+        {/* Jira-style Breadcrumb Header */}
+        <div className="flex items-center justify-between px-6 py-3.5 border-b border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/80">
+          <div className="flex items-center space-x-2 text-xs font-semibold">
+            <span className="flex items-center space-x-1 text-brand-600 dark:text-brand-400">
+              <CheckSquare className="w-4 h-4" />
+              <span>ISSUE</span>
+            </span>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-400 dark:text-slate-600" />
+            <span className="font-mono text-slate-700 dark:text-slate-300 px-1.5 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800">
+              TASK-{task?.id}
+            </span>
             {task?.isOverdue && (
-              <span className="inline-flex items-center space-x-1 px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-700">
+              <span className="inline-flex items-center space-x-1 px-2 py-0.5 rounded-full text-xs font-bold bg-red-100 dark:bg-red-950/80 text-red-700 dark:text-red-400 border border-red-200 dark:border-red-900">
                 <AlertCircle className="w-3 h-3" />
                 <span>Overdue</span>
               </span>
             )}
-            <span className="text-xs text-slate-400 font-mono">v{task?.version}</span>
+            <span className="text-[11px] text-slate-400 dark:text-slate-500 font-mono">rev.{task?.version}</span>
           </div>
-          <div className="flex items-center space-x-2">
+
+          <div className="flex items-center space-x-1">
             <button
               onClick={handleDeleteTask}
-              className="p-1.5 text-slate-400 hover:text-red-600 rounded-lg hover:bg-red-50"
-              title="Delete task"
+              className="p-1.5 text-slate-400 hover:text-red-600 dark:hover:text-red-400 rounded-lg hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors"
+              title="Delete issue"
             >
               <Trash2 className="w-4 h-4" />
             </button>
             <button
               onClick={onClose}
-              className="p-1.5 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100"
+              className="p-1.5 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              title="Close panel"
             >
               <X className="w-5 h-5" />
             </button>
@@ -188,7 +199,7 @@ export function TaskDrawer({
         {/* Drawer Content */}
         {isLoading ? (
           <div className="flex-1 flex items-center justify-center">
-            <div className="w-8 h-8 border-4 border-brand-200 border-t-brand-600 rounded-full animate-spin" />
+            <div className="w-8 h-8 border-4 border-brand-200 border-t-brand-600 dark:border-brand-900 dark:border-t-brand-400 rounded-full animate-spin" />
           </div>
         ) : task ? (
           <div className="flex-1 overflow-y-auto px-6 py-6 space-y-6">
@@ -201,21 +212,21 @@ export function TaskDrawer({
                 value={task.title}
                 onChange={(e) => setTask({ ...task, title: e.target.value })}
                 onBlur={() => handleUpdate({ title: task.title })}
-                className="w-full text-xl font-bold text-slate-900 border-b border-transparent hover:border-slate-300 focus:border-brand-500 focus:outline-none py-1"
+                className="w-full text-xl font-bold text-slate-900 dark:text-slate-100 bg-transparent border-b border-transparent hover:border-slate-300 dark:hover:border-slate-700 focus:border-brand-500 focus:outline-none py-1 transition-colors"
                 placeholder="Task title"
               />
             </div>
 
-            {/* Status & Priority Grid */}
-            <div className="grid grid-cols-2 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-100">
+            {/* Jira-style Meta Details Grid */}
+            <div className="grid grid-cols-2 gap-4 bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-200/80 dark:border-slate-800">
               <div>
-                <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">
+                <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">
                   Status
                 </label>
                 <select
                   value={task.status}
                   onChange={(e) => handleUpdate({ status: e.target.value as TaskStatus })}
-                  className="w-full bg-white border border-slate-200 rounded-lg text-sm px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                  className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm px-3 py-1.5 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-500"
                 >
                   <option value="TODO">To Do</option>
                   <option value="IN_PROGRESS">In Progress</option>
@@ -225,23 +236,23 @@ export function TaskDrawer({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">
+                <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">
                   Priority
                 </label>
                 <select
                   value={task.priority}
                   onChange={(e) => handleUpdate({ priority: e.target.value as TaskPriority })}
-                  className={`w-full border border-slate-200 rounded-lg text-sm px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-brand-500 ${priorityColors[task.priority]}`}
+                  className={`w-full border border-slate-200 dark:border-slate-700 rounded-lg text-sm px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-brand-500 ${priorityColors[task.priority]}`}
                 >
-                  <option value="LOW">Low</option>
-                  <option value="MEDIUM">Medium</option>
-                  <option value="HIGH">High</option>
-                  <option value="URGENT">Urgent</option>
+                  <option value="LOW">Low (↓)</option>
+                  <option value="MEDIUM">Medium (=)</option>
+                  <option value="HIGH">High (↑)</option>
+                  <option value="URGENT">Urgent (⇈)</option>
                 </select>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1 flex items-center space-x-1">
+                <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1 flex items-center space-x-1">
                   <UserIcon className="w-3.5 h-3.5" />
                   <span>Assignee</span>
                 </label>
@@ -251,7 +262,7 @@ export function TaskDrawer({
                     const val = e.target.value ? Number(e.target.value) : null;
                     handleUpdate({ assigneeId: val });
                   }}
-                  className="w-full bg-white border border-slate-200 rounded-lg text-sm px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                  className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm px-3 py-1.5 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-500"
                 >
                   <option value="">Unassigned</option>
                   {members.map((m) => (
@@ -263,7 +274,7 @@ export function TaskDrawer({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1 flex items-center space-x-1">
+                <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1 flex items-center space-x-1">
                   <Calendar className="w-3.5 h-3.5" />
                   <span>Due Date</span>
                 </label>
@@ -271,36 +282,38 @@ export function TaskDrawer({
                   type="date"
                   value={task.dueDate || ""}
                   onChange={(e) => handleUpdate({ dueDate: e.target.value || null })}
-                  className="w-full bg-white border border-slate-200 rounded-lg text-sm px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                  className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm px-3 py-1.5 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-500"
                 />
               </div>
             </div>
 
             {/* Description */}
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-1">Description</label>
+              <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">
+                Description
+              </label>
               <textarea
                 rows={4}
                 value={task.description || ""}
                 onChange={(e) => setTask({ ...task, description: e.target.value })}
                 onBlur={() => handleUpdate({ description: task.description })}
-                placeholder="Add a more detailed description..."
-                className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500"
+                placeholder="Add acceptance criteria or technical details..."
+                className="w-full px-3 py-2 text-sm border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 rounded-lg text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-colors"
               />
             </div>
 
             {/* Labels / Tags */}
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2 flex items-center space-x-1">
-                <Tag className="w-4 h-4 text-slate-400" />
+              <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-2 flex items-center space-x-1">
+                <Tag className="w-3.5 h-3.5 text-slate-400" />
                 <span>Labels</span>
               </label>
               <div className="flex flex-wrap gap-2 items-center">
                 {task.labels?.map((label) => (
                   <span
                     key={label.name}
-                    style={{ backgroundColor: `${label.color}15`, color: label.color, borderColor: `${label.color}30` }}
-                    className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-md text-xs font-medium border"
+                    style={{ backgroundColor: `${label.color}18`, color: label.color, borderColor: `${label.color}35` }}
+                    className="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-md text-xs font-medium border"
                   >
                     <span>{label.name}</span>
                     <button
@@ -313,13 +326,13 @@ export function TaskDrawer({
                 ))}
 
                 {isAddingTag ? (
-                  <div className="flex items-center space-x-2 bg-slate-50 p-1.5 rounded-lg border border-slate-200">
+                  <div className="flex items-center space-x-2 bg-slate-50 dark:bg-slate-800 p-1.5 rounded-lg border border-slate-200 dark:border-slate-700">
                     <input
                       type="text"
                       placeholder="Label name"
                       value={newTagText}
                       onChange={(e) => setNewTagText(e.target.value)}
-                      className="px-2 py-0.5 text-xs border border-slate-300 rounded focus:outline-none"
+                      className="px-2 py-0.5 text-xs border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 rounded focus:outline-none"
                     />
                     <input
                       type="color"
@@ -330,7 +343,7 @@ export function TaskDrawer({
                     <button
                       type="button"
                       onClick={handleAddLabel}
-                      className="p-1 text-emerald-600 hover:text-emerald-700"
+                      className="p-1 text-emerald-600 hover:text-emerald-700 dark:text-emerald-400"
                     >
                       <Check className="w-4 h-4" />
                     </button>
@@ -346,7 +359,7 @@ export function TaskDrawer({
                   <button
                     type="button"
                     onClick={() => setIsAddingTag(true)}
-                    className="inline-flex items-center px-2 py-1 text-xs font-medium text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-md transition-colors"
+                    className="inline-flex items-center px-2 py-1 text-xs font-medium text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-md transition-colors"
                   >
                     + Add Label
                   </button>
@@ -354,13 +367,13 @@ export function TaskDrawer({
               </div>
             </div>
 
-            <hr className="border-slate-100" />
+            <hr className="border-slate-200 dark:border-slate-800" />
 
             {/* Comments Thread */}
             <div className="space-y-4">
-              <h4 className="text-sm font-bold text-slate-900 flex items-center space-x-2">
+              <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center space-x-2">
                 <MessageSquare className="w-4 h-4 text-slate-400" />
-                <span>Comments & Discussion ({comments.length})</span>
+                <span>Activity & Comments ({comments.length})</span>
               </h4>
 
               {/* Comment Input */}
@@ -370,12 +383,12 @@ export function TaskDrawer({
                   value={newComment}
                   onChange={(e) => setNewComment(e.target.value)}
                   placeholder="Write a comment..."
-                  className="flex-1 px-3 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500"
+                  className="flex-1 px-3 py-2 text-sm border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500"
                 />
                 <button
                   type="submit"
                   disabled={isSubmitting || !newComment.trim()}
-                  className="px-3 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 disabled:opacity-50 text-sm font-medium flex items-center space-x-1"
+                  className="px-3.5 py-2 bg-brand-600 hover:bg-brand-700 dark:bg-brand-500 dark:hover:bg-brand-600 text-white rounded-lg disabled:opacity-50 text-sm font-medium flex items-center space-x-1 shadow-xs transition-colors"
                 >
                   <Send className="w-4 h-4" />
                 </button>
@@ -384,17 +397,17 @@ export function TaskDrawer({
               {/* Comment List */}
               <div className="space-y-3">
                 {comments.length === 0 ? (
-                  <p className="text-xs text-slate-400 italic">No comments yet. Start the conversation!</p>
+                  <p className="text-xs text-slate-400 dark:text-slate-500 italic">No comments yet. Start the conversation!</p>
                 ) : (
                   comments.map((c) => (
-                    <div key={c.id} className="p-3 bg-slate-50 rounded-lg border border-slate-100 text-sm">
+                    <div key={c.id} className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-lg border border-slate-100 dark:border-slate-800 text-sm">
                       <div className="flex items-center justify-between mb-1">
-                        <span className="font-semibold text-slate-800 text-xs">{c.authorName}</span>
-                        <span className="text-[10px] text-slate-400">
+                        <span className="font-semibold text-slate-800 dark:text-slate-200 text-xs">{c.authorName}</span>
+                        <span className="text-[10px] text-slate-400 dark:text-slate-500">
                           {new Date(c.createdAt).toLocaleString()}
                         </span>
                       </div>
-                      <p className="text-slate-600 text-xs whitespace-pre-wrap">{c.content}</p>
+                      <p className="text-slate-600 dark:text-slate-300 text-xs whitespace-pre-wrap">{c.content}</p>
                     </div>
                   ))
                 )}
@@ -408,4 +421,3 @@ export function TaskDrawer({
 }
 
 export default TaskDrawer;
-

@@ -9,12 +9,11 @@ import EmptyState from "@/components/EmptyState";
 import ErrorAlert from "@/components/ErrorAlert";
 import {
   Activity,
-  User,
   Clock,
-  ArrowRight,
   ChevronLeft,
   ChevronRight,
-  Filter,
+  Shield,
+  Layers,
 } from "lucide-react";
 
 export default function ActivityLogPage() {
@@ -54,23 +53,21 @@ export default function ActivityLogPage() {
   }, [currentOrg]);
 
   const getActionBadge = (action: string) => {
-    let color = "bg-zinc-800 text-zinc-300 border-zinc-700";
+    let color = "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700";
     if (action.includes("CREATE")) {
-      color = "bg-emerald-500/10 text-emerald-400 border-emerald-500/20";
+      color = "bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800";
     } else if (action.includes("MOVE")) {
-      color = "bg-blue-500/10 text-blue-400 border-blue-500/20";
+      color = "bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800";
     } else if (action.includes("DELETE") || action.includes("REMOVE")) {
-      color = "bg-red-500/10 text-red-400 border-red-500/20";
+      color = "bg-red-50 dark:bg-red-950/60 text-red-700 dark:text-red-300 border-red-200 dark:border-red-800";
     } else if (action.includes("ROLE") || action.includes("MEMBER")) {
-      color = "bg-purple-500/10 text-purple-400 border-purple-500/20";
+      color = "bg-purple-50 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-800";
     } else if (action.includes("OVERDUE")) {
-      color = "bg-amber-500/10 text-amber-400 border-amber-500/20";
+      color = "bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800";
     }
 
     return (
-      <span
-        className={`px-2 py-0.5 rounded text-[11px] font-semibold border ${color}`}
-      >
+      <span className={`px-2 py-0.5 rounded text-[11px] font-semibold border ${color}`}>
         {action.replace(/_/g, " ")}
       </span>
     );
@@ -78,121 +75,104 @@ export default function ActivityLogPage() {
 
   return (
     <AppShell>
-      <div className="space-y-6 max-w-5xl mx-auto">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div className="space-y-6">
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-2 border-b border-slate-200 dark:border-slate-800">
           <div>
-            <h1 className="text-2xl font-bold text-white tracking-tight">
+            <h1 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
               Activity Log & Audit Trail
             </h1>
-            <p className="text-zinc-400 text-sm mt-1">
-              Immutable history of domain events, project updates, and member actions.
+            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+              Immutable history of domain events, project updates, and member actions for {currentOrg?.name}.
             </p>
           </div>
         </div>
 
         {error && <ErrorAlert message={error} onClose={() => setError(null)} />}
 
-        <div className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-sm">
-          <div className="p-4 sm:p-5 border-b border-zinc-800 flex items-center justify-between">
-            <div className="flex items-center gap-2 text-sm font-semibold text-white">
-              <Activity className="w-4 h-4 text-blue-400" />
-              <span>Event Stream</span>
+        {/* Activity Stream Card */}
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-xs transition-colors">
+          <div className="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+            <div className="flex items-center space-x-2">
+              <Activity className="w-5 h-5 text-brand-600 dark:text-brand-400" />
+              <h2 className="text-base font-bold text-slate-900 dark:text-white">Kafka Event Stream</h2>
             </div>
-            <span className="text-xs text-zinc-400">
-              Audit logs are automatically published via Kafka consumers
+            <span className="text-xs text-slate-400 dark:text-slate-500 font-mono">
+              Transactional Outbox
             </span>
           </div>
 
           {loading ? (
-            <div className="p-6 space-y-4">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <div
-                  key={i}
-                  className="h-14 bg-zinc-800/40 rounded-lg animate-pulse"
-                />
-              ))}
-            </div>
+            <div className="p-8 text-center text-sm text-slate-400">Loading audit trail...</div>
           ) : logs.length === 0 ? (
-            <div className="p-12">
+            <div className="p-8">
               <EmptyState
                 icon={Activity}
                 title="No activity recorded yet"
-                description="Actions like creating projects, moving tasks, assigning teammates, or changing roles will be logged here automatically."
+                description="Events such as task moves, comments, and member invites will appear in this timeline."
               />
             </div>
           ) : (
-            <div className="divide-y divide-zinc-800/60">
-              {logs.map((log) => (
-                <div
-                  key={log.id}
-                  className="p-4 sm:px-6 hover:bg-zinc-850/50 transition flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-sm"
-                >
-                  <div className="flex items-start sm:items-center gap-3 min-w-0">
-                    <div className="w-8 h-8 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center text-zinc-300 font-semibold text-xs shrink-0 mt-0.5 sm:mt-0">
-                      {log.userName
-                        ? log.userName.substring(0, 2).toUpperCase()
-                        : "SY"}
+            <>
+              <div className="divide-y divide-slate-100 dark:divide-slate-800/80">
+                {logs.map((log) => (
+                  <div
+                    key={log.id}
+                    className="p-4 sm:px-6 flex items-start justify-between gap-4 hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition-colors"
+                  >
+                    <div className="flex items-start space-x-3.5">
+                      <div className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center font-bold text-xs uppercase flex-shrink-0 mt-0.5">
+                        {log.userName ? log.userName.charAt(0) : "S"}
+                      </div>
+                      <div>
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="font-semibold text-sm text-slate-900 dark:text-slate-100">
+                            {log.userName || log.userEmail || "System"}
+                          </span>
+                          {getActionBadge(log.action)}
+                          <span className="text-xs text-slate-400 font-mono">
+                            {log.entityType} #{log.entityId}
+                          </span>
+                        </div>
+                        <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">
+                          {log.details || `Performed ${log.action} on ${log.entityName || "entity"}`}
+                        </p>
+                      </div>
                     </div>
 
-                    <div className="min-w-0">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className="font-semibold text-white">
-                          {log.userName || "System"}
-                        </span>
-                        {getActionBadge(log.action)}
-                        {log.entityName && (
-                          <span className="text-zinc-300 font-medium truncate max-w-xs">
-                            "{log.entityName}"
-                          </span>
-                        )}
-                      </div>
-                      {log.details && (
-                        <p className="text-xs text-zinc-400 mt-0.5 leading-relaxed">
-                          {log.details}
-                        </p>
-                      )}
+                    <div className="flex items-center space-x-1 text-xs text-slate-400 dark:text-slate-500 whitespace-nowrap flex-shrink-0">
+                      <Clock className="w-3.5 h-3.5" />
+                      <span>{new Date(log.createdAt).toLocaleString()}</span>
                     </div>
                   </div>
+                ))}
+              </div>
 
-                  <div className="flex items-center gap-1.5 text-xs text-zinc-500 shrink-0 self-end sm:self-center">
-                    <Clock className="w-3.5 h-3.5" />
-                    <span>
-                      {new Date(log.createdAt).toLocaleDateString(undefined, {
-                        month: "short",
-                        day: "numeric",
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      })}
-                    </span>
+              {/* Pagination */}
+              {totalPages > 1 && (
+                <div className="px-6 py-3.5 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/60 flex items-center justify-between text-xs text-slate-600 dark:text-slate-400">
+                  <span>
+                    Page {page + 1} of {totalPages}
+                  </span>
+                  <div className="flex items-center space-x-2">
+                    <button
+                      onClick={() => fetchActivityLogs(page - 1)}
+                      disabled={page === 0}
+                      className="p-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 disabled:opacity-40"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={() => fetchActivityLogs(page + 1)}
+                      disabled={page >= totalPages - 1}
+                      className="p-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 disabled:opacity-40"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
                   </div>
                 </div>
-              ))}
-            </div>
-          )}
-
-          {/* Pagination */}
-          {totalPages > 1 && (
-            <div className="p-4 border-t border-zinc-800 flex items-center justify-between text-xs text-zinc-400">
-              <div>
-                Page {page + 1} of {totalPages}
-              </div>
-              <div className="flex items-center gap-2">
-                <button
-                  disabled={page === 0}
-                  onClick={() => fetchActivityLogs(page - 1)}
-                  className="p-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 disabled:opacity-40 rounded-lg transition"
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                </button>
-                <button
-                  disabled={page >= totalPages - 1}
-                  onClick={() => fetchActivityLogs(page + 1)}
-                  className="p-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 disabled:opacity-40 rounded-lg transition"
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
+              )}
+            </>
           )}
         </div>
       </div>
