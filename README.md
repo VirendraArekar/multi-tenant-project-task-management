@@ -62,6 +62,50 @@ The database automatically seeds 100+ realistic engineering tasks across Kanban 
 
 ---
 
+## 📸 Application Screenshots
+
+### 1. Engineering Executive Dashboard & Dynamic Analytics
+Real-time KPI metrics, pure SVG interactive pipeline donut gauge with completion percentage, 7-day sprint velocity wave chart with gradient fills, and team engineering workload capacity bars.
+
+![Executive Dashboard](docs/screenshots/dashboard.svg)
+
+---
+
+### 2. Jira-Style Agile Kanban Board
+Interactive drag-and-drop workflow with column highlight rings, Jira issue keys (`TASK-X`), directional priority icons, and quick-filter toolbar (Search, "Only my issues" toggle, Assignee dropdown, Priority dropdown, and active count badges).
+
+![Jira-Style Kanban Board](docs/screenshots/kanban-board.svg)
+
+---
+
+### 3. Issue Inspection Drawer & Discussion Stream
+Slide-out Jira-style task inspection panel featuring status selector, priority controls, rich description editor, assignee avatar, label chips, and real-time activity discussion comments.
+
+![Task Detail & Inspection Drawer](docs/screenshots/task-drawer.svg)
+
+---
+
+### 4. Organization Members, Roles & Tokenized Invitations
+Multi-tenant RBAC table with `OWNER`, `ADMIN`, and `MEMBER` role management, invariant protection guards (last owner cannot be removed), and tokenized 7-day invitation link generator with one-click copy.
+
+![Organization Members & Roles](docs/screenshots/members.svg)
+
+---
+
+### 5. Organization Audit Trail & Event Stream
+Immutable activity log stream capturing tenant events dispatched through the transactional outbox pattern and Apache Kafka consumers (`TASK_MOVED`, `COMMENT_ADDED`, `MEMBER_INVITED`, `TASK_OVERDUE`).
+
+![Organization Audit Trail](docs/screenshots/activity-audit.svg)
+
+---
+
+### 6. Universal Dark & Light Mode Theme Architecture
+Side-by-side comparison of the deep Slate-950 Dark Theme and crisp Slate-50 Light Theme with instant local storage persistence and system preference matching.
+
+![Dark & Light Mode Theme Comparison](docs/screenshots/theme-comparison.svg)
+
+---
+
 ## 🛠 Tech Stack
 
 | Tier | Technologies |

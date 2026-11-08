@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 820" width="1280" height="820" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <!-- Outer Window Container -->
+  <rect width="1280" height="820" rx="14" fill="#020617"/>
+  <rect x="0.5" y="0.5" width="1279" height="819" rx="13.5" fill="none" stroke="#334155" stroke-opacity="0.6"/>
+
+  <!-- macOS Window Titlebar -->
+  <path d="M0 14 C0 6.268 6.268 0 14 0 L1266 0 C1273.732 0 1280 6.268 1280 14 L1280 44 L0 44 Z" fill="#0f172a"/>
+  <line x1="0" y1="44" x2="1280" y2="44" stroke="#1e293b" stroke-width="1"/>
+  
+  <circle cx="22" cy="22" r="6.5" fill="#ef4444"/>
+  <circle cx="42" cy="22" r="6.5" fill="#f59e0b"/>
+  <circle cx="62" cy="22" r="6.5" fill="#10b981"/>
+
+  <rect x="420" y="10" width="440" height="24" rx="6" fill="#1e293b" fill-opacity="0.7"/>
+  <text x="640" y="26" text-anchor="middle" font-size="12" fill="#94a3b8" font-weight="500">teamboard.io / projects / 1 / board — Issue TASK-42</text>
+
+  <!-- Background Kanban Board (Blurred/Dimmed by Backdrop) -->
+  <rect x="0" y="44" width="760" height="776" fill="#0b1120"/>
+  <!-- Dim Backdrop Overlay -->
+  <rect x="0" y="44" width="1280" height="776" fill="#020617" fill-opacity="0.75"/>
+
+  <!-- Slide-out Drawer Panel (Width 560px on right) -->
+  <g transform="translate(720, 44)">
+    <rect width="560" height="776" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+    
+    <!-- Drawer Header Bar -->
+    <rect width="560" height="60" fill="#1e293b" fill-opacity="0.6"/>
+    <line x1="0" y1="60" x2="560" y2="60" stroke="#334155" stroke-width="0.8"/>
+    
+    <!-- Breadcrumb Key -->
+    <text x="24" y="34" font-size="12" font-weight="700" fill="#3b82f6">ISSUE &gt; TASK-42</text>
+    <rect x="130" y="18" width="80" height="22" rx="4" fill="#3b82f6" fill-opacity="0.2"/>
+    <text x="170" y="33" text-anchor="middle" font-size="11" font-weight="700" fill="#60a5fa">IN PROGRESS</text>
+
+    <!-- Close 'X' Button -->
+    <rect x="510" y="18" width="26" height="26" rx="6" fill="#1e293b"/>
+    <text x="523" y="35" text-anchor="middle" font-size="14" fill="#94a3b8" font-weight="700">✕</text>
+
+    <!-- Issue Title -->
+    <text x="24" y="96" font-size="18" font-weight="800" fill="#ffffff">Distributed Token Bucket Rate Limiting with Redis Lua</text>
+    
+    <!-- Status & Priority Action Bar -->
+    <g transform="translate(24, 116)">
+      <!-- Status Selector -->
+      <rect width="130" height="32" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <circle cx="16" cy="16" r="4" fill="#3b82f6"/>
+      <text x="28" y="21" font-size="12" font-weight="600" fill="#cbd5e1">In Progress</text>
+      <path d="M110 14 L114 18 L118 14" stroke="#94a3b8" stroke-width="1.5" fill="none"/>
+
+      <!-- Priority Selector -->
+      <g transform="translate(142, 0)">
+        <rect width="120" height="32" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+        <polygon points="14,19 18,14 22,19" fill="#ef4444"/>
+        <polygon points="14,25 18,20 22,25" fill="#ef4444"/>
+        <text x="30" y="21" font-size="12" font-weight="600" fill="#f87171">Urgent</text>
+        <path d="M100 14 L104 18 L108 14" stroke="#94a3b8" stroke-width="1.5" fill="none"/>
+      </g>
+    </g>
+
+    <!-- Description Section -->
+    <g transform="translate(24, 175)">
+      <text x="0" y="16" font-size="13" font-weight="700" fill="#94a3b8">DESCRIPTION</text>
+      <rect y="26" width="512" height="110" rx="8" fill="#1e293b" fill-opacity="0.4" stroke="#334155" stroke-width="1"/>
+      <text x="14" y="50" font-size="13" fill="#cbd5e1">Implement an atomic Redis Lua token bucket rate limiter for the SaaS API.</text>
+      <text x="14" y="70" font-size="13" fill="#cbd5e1">• Enforce 10 req/min limits on authentication endpoints.</text>
+      <text x="14" y="90" font-size="13" fill="#cbd5e1">• Support both user-based and IP-based rate limit keys.</text>
+      <text x="14" y="110" font-size="13" fill="#cbd5e1">• Return HTTP 429 Too Many Requests with Retry-After header.</text>
+    </g>
+
+    <!-- Metadata Grid (Assignee, Due Date, Labels) -->
+    <g transform="translate(24, 325)">
+      <!-- Assignee -->
+      <text x="0" y="16" font-size="12" font-weight="600" fill="#94a3b8">Assignee</text>
+      <circle cx="12" cy="38" r="12" fill="#3b82f6"/>
+      <text x="12" y="42" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff">SC</text>
+      <text x="32" y="42" font-size="13" font-weight="600" fill="#f8fafc">Sarah Connor</text>
+
+      <!-- Due Date -->
+      <g transform="translate(240, 0)">
+        <text x="0" y="16" font-size="12" font-weight="600" fill="#94a3b8">Due Date</text>
+        <rect y="26" width="130" height="24" rx="4" fill="#ef4444" fill-opacity="0.2"/>
+        <text x="65" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="#f87171">Nov 10, 2026 (Tomorrow)</text>
+      </g>
+
+      <!-- Labels -->
+      <g transform="translate(0, 68)">
+        <text x="0" y="16" font-size="12" font-weight="600" fill="#94a3b8">Labels</text>
+        <rect x="0" y="24" width="60" height="20" rx="4" fill="#3b82f6" fill-opacity="0.2"/>
+        <text x="30" y="38" text-anchor="middle" font-size="11" font-weight="600" fill="#60a5fa">Security</text>
+
+        <rect x="68" y="24" width="54" height="20" rx="4" fill="#10b981" fill-opacity="0.2"/>
+        <text x="95" y="38" text-anchor="middle" font-size="11" font-weight="600" fill="#34d399">Redis</text>
+
+        <rect x="130" y="24" width="66" height="20" rx="4" fill="#8b5cf6" fill-opacity="0.2"/>
+        <text x="163" y="38" text-anchor="middle" font-size="11" font-weight="600" fill="#c084fc">Backend</text>
+      </g>
+    </g>
+
+    <line x1="24" y1="440" x2="536" y2="440" stroke="#1e293b" stroke-width="1"/>
+
+    <!-- Activity & Comments Stream -->
+    <g transform="translate(24, 460)">
+      <text x="0" y="16" font-size="14" font-weight="700" fill="#ffffff">Discussion Stream</text>
+      <text x="130" y="16" font-size="12" fill="#94a3b8">(2 comments)</text>
+
+      <!-- Comment 1 -->
+      <g transform="translate(0, 36)">
+        <circle cx="14" cy="14" r="14" fill="#3b82f6"/>
+        <text x="14" y="19" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">DK</text>
+        <text x="36" y="14" font-size="13" font-weight="600" fill="#f8fafc">David Kim</text>
+        <text x="105" y="14" font-size="11" fill="#64748b">• 2 hours ago</text>
+        <rect x="36" y="24" width="476" height="42" rx="6" fill="#1e293b"/>
+        <text x="48" y="44" font-size="12" fill="#cbd5e1">The Lua script is ready in redis-limiter.lua and verified with test burst traffic.</text>
+      </g>
+
+      <!-- Comment 2 -->
+      <g transform="translate(0, 114)">
+        <circle cx="14" cy="14" r="14" fill="#10b981"/>
+        <text x="14" y="19" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">SC</text>
+        <text x="36" y="14" font-size="13" font-weight="600" fill="#f8fafc">Sarah Connor</text>
+        <text x="120" y="14" font-size="11" fill="#64748b">• 25 mins ago</text>
+        <rect x="36" y="24" width="476" height="42" rx="6" fill="#1e293b"/>
+        <text x="48" y="44" font-size="12" fill="#cbd5e1">Awesome! Moving this card to Code Review for integration signoff.</text>
+      </g>
+
+      <!-- Comment Input Box -->
+      <g transform="translate(0, 196)">
+        <rect width="512" height="64" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+        <text x="16" y="26" font-size="12" fill="#64748b">Write a comment or mention @teammate...</text>
+        <rect x="420" y="32" width="80" height="24" rx="4" fill="#2563eb"/>
+        <text x="460" y="48" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">Comment</text>
+      </g>
+    </g>
+  </g>
+</svg>

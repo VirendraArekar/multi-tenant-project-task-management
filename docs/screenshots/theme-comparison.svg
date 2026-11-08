@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <!-- Outer Window Container -->
+  <rect width="1280" height="720" rx="14" fill="#090d16"/>
+  <rect x="0.5" y="0.5" width="1279" height="719" rx="13.5" fill="none" stroke="#334155" stroke-opacity="0.6"/>
+
+  <!-- Top Title -->
+  <text x="640" y="44" text-anchor="middle" font-size="22" font-weight="800" fill="#ffffff">Universal Dark &amp; Light Theme Architecture</text>
+  <text x="640" y="68" text-anchor="middle" font-size="13" fill="#94a3b8">Seamless CSS variable-driven theme switching with instant localStorage persistence</text>
+
+  <!-- Left Side: Dark Mode Preview (610px) -->
+  <g transform="translate(20, 95)">
+    <!-- Window Frame -->
+    <rect width="610" height="595" rx="10" fill="#020617" stroke="#1e293b" stroke-width="1"/>
+    <!-- Titlebar -->
+    <rect width="610" height="34" rx="10 10 0 0" fill="#0f172a"/>
+    <circle cx="16" cy="17" r="4.5" fill="#ef4444"/>
+    <circle cx="30" cy="17" r="4.5" fill="#f59e0b"/>
+    <circle cx="44" cy="17" r="4.5" fill="#10b981"/>
+    <text x="305" y="22" text-anchor="middle" font-size="11" font-weight="700" fill="#3b82f6">DARK THEME (Default)</text>
+
+    <!-- Mini Dashboard in Dark -->
+    <g transform="translate(16, 50)">
+      <!-- KPI -->
+      <rect width="276" height="60" rx="6" fill="#1e293b" stroke="#334155" stroke-width="0.8"/>
+      <text x="14" y="24" font-size="10" font-weight="600" fill="#94a3b8">TOTAL ISSUES</text>
+      <text x="14" y="46" font-size="20" font-weight="800" fill="#ffffff">103 Active</text>
+
+      <rect x="296" y="0" width="280" height="60" rx="6" fill="#1e293b" stroke="#334155" stroke-width="0.8"/>
+      <text x="310" y="24" font-size="10" font-weight="600" fill="#94a3b8">RESOLUTION RATE</text>
+      <text x="310" y="46" font-size="20" font-weight="800" fill="#10b981">61.2% Done</text>
+
+      <!-- Mini Kanban Column -->
+      <rect y="74" width="276" height="440" rx="8" fill="#0b1120" stroke="#1e293b" stroke-width="1"/>
+      <text x="14" y="98" font-size="11" font-weight="700" fill="#94a3b8">TO DO</text>
+      <!-- Card -->
+      <rect x="10" y="112" width="256" height="90" rx="6" fill="#1e293b" stroke="#334155" stroke-width="0.8"/>
+      <text x="20" y="132" font-size="10" font-weight="700" fill="#3b82f6">TASK-102</text>
+      <text x="20" y="152" font-size="12" font-weight="600" fill="#ffffff">Redis Token Bucket Limiter</text>
+      <rect x="20" y="166" width="50" height="16" rx="3" fill="#3b82f6" fill-opacity="0.2"/>
+      <text x="45" y="178" text-anchor="middle" font-size="9" fill="#60a5fa" font-weight="600">Security</text>
+
+      <!-- Second Column -->
+      <rect x="296" y="74" width="280" height="440" rx="8" fill="#0b1120" stroke="#3b82f6" stroke-width="1"/>
+      <text x="310" y="98" font-size="11" font-weight="700" fill="#3b82f6">IN PROGRESS</text>
+      <!-- Card -->
+      <rect x="306" y="112" width="260" height="90" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="1"/>
+      <text x="316" y="132" font-size="10" font-weight="700" fill="#3b82f6">TASK-88</text>
+      <text x="316" y="152" font-size="12" font-weight="600" fill="#ffffff">Transactional Outbox Relay</text>
+      <rect x="316" y="166" width="54" height="16" rx="3" fill="#10b981" fill-opacity="0.2"/>
+      <text x="343" y="178" text-anchor="middle" font-size="9" fill="#34d399" font-weight="600">Backend</text>
+    </g>
+  </g>
+
+  <!-- Right Side: Light Mode Preview (610px) -->
+  <g transform="translate(650, 95)">
+    <!-- Window Frame -->
+    <rect width="610" height="595" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+    <!-- Titlebar -->
+    <rect width="610" height="34" rx="10 10 0 0" fill="#ffffff"/>
+    <circle cx="16" cy="17" r="4.5" fill="#ef4444"/>
+    <circle cx="30" cy="17" r="4.5" fill="#f59e0b"/>
+    <circle cx="44" cy="17" r="4.5" fill="#10b981"/>
+    <text x="305" y="22" text-anchor="middle" font-size="11" font-weight="700" fill="#0284c7">LIGHT THEME (Crisp &amp; Clean)</text>
+
+    <!-- Mini Dashboard in Light -->
+    <g transform="translate(16, 50)">
+      <!-- KPI -->
+      <rect width="276" height="60" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+      <text x="14" y="24" font-size="10" font-weight="600" fill="#64748b">TOTAL ISSUES</text>
+      <text x="14" y="46" font-size="20" font-weight="800" fill="#0f172a">103 Active</text>
+
+      <rect x="296" y="0" width="280" height="60" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+      <text x="310" y="24" font-size="10" font-weight="600" fill="#64748b">RESOLUTION RATE</text>
+      <text x="310" y="46" font-size="20" font-weight="800" fill="#059669">61.2% Done</text>
+
+      <!-- Mini Kanban Column -->
+      <rect y="74" width="276" height="440" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+      <text x="14" y="98" font-size="11" font-weight="700" fill="#64748b">TO DO</text>
+      <!-- Card -->
+      <rect x="10" y="112" width="256" height="90" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+      <text x="20" y="132" font-size="10" font-weight="700" fill="#2563eb">TASK-102</text>
+      <text x="20" y="152" font-size="12" font-weight="600" fill="#0f172a">Redis Token Bucket Limiter</text>
+      <rect x="20" y="166" width="50" height="16" rx="3" fill="#dbeafe"/>
+      <text x="45" y="178" text-anchor="middle" font-size="9" fill="#1d4ed8" font-weight="600">Security</text>
+
+      <!-- Second Column -->
+      <rect x="296" y="74" width="280" height="440" rx="8" fill="#f1f5f9" stroke="#93c5fd" stroke-width="1"/>
+      <text x="310" y="98" font-size="11" font-weight="700" fill="#2563eb">IN PROGRESS</text>
+      <!-- Card -->
+      <rect x="306" y="112" width="260" height="90" rx="6" fill="#ffffff" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="316" y="132" font-size="10" font-weight="700" fill="#2563eb">TASK-88</text>
+      <text x="316" y="152" font-size="12" font-weight="600" fill="#0f172a">Transactional Outbox Relay</text>
+      <rect x="316" y="166" width="54" height="16" rx="3" fill="#d1fae5"/>
+      <text x="343" y="178" text-anchor="middle" font-size="9" fill="#047857" font-weight="600">Backend</text>
+    </g>
+  </g>
+</svg>

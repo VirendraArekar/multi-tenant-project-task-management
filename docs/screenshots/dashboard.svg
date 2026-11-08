@@ -1,0 +1,298 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 820" width="1280" height="820" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="velocityGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.0"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Window Container -->
+  <rect width="1280" height="820" rx="14" fill="#020617"/>
+  <rect x="0.5" y="0.5" width="1279" height="819" rx="13.5" fill="none" stroke="#334155" stroke-opacity="0.6"/>
+
+  <!-- macOS Window Titlebar -->
+  <path d="M0 14 C0 6.268 6.268 0 14 0 L1266 0 C1273.732 0 1280 6.268 1280 14 L1280 44 L0 44 Z" fill="#0f172a"/>
+  <line x1="0" y1="44" x2="1280" y2="44" stroke="#1e293b" stroke-width="1"/>
+  
+  <!-- Window Controls -->
+  <circle cx="22" cy="22" r="6.5" fill="#ef4444"/>
+  <circle cx="42" cy="22" r="6.5" fill="#f59e0b"/>
+  <circle cx="62" cy="22" r="6.5" fill="#10b981"/>
+
+  <!-- Window Title / URL -->
+  <rect x="440" y="10" width="400" height="24" rx="6" fill="#1e293b" fill-opacity="0.7"/>
+  <text x="640" y="26" text-anchor="middle" font-size="12" fill="#94a3b8" font-weight="500">teamboard.io / dashboard — Acme Cloud Solutions</text>
+
+  <!-- Top Right Header Actions -->
+  <rect x="1110" y="10" width="70" height="24" rx="12" fill="#1e293b"/>
+  <circle cx="1125" cy="22" r="6" fill="#3b82f6"/>
+  <text x="1148" y="26" font-size="11" fill="#cbd5e1" font-weight="600">DARK</text>
+  <circle cx="1205" cy="22" r="10" fill="#3b82f6"/>
+  <text x="1205" y="26" text-anchor="middle" font-size="11" fill="#ffffff" font-weight="700">AV</text>
+
+  <!-- App Sidebar (240px) -->
+  <rect x="0" y="44" width="240" height="776" fill="#0b1120"/>
+  <line x1="240" y1="44" x2="240" y2="820" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Logo -->
+  <g transform="translate(24, 68)">
+    <rect width="32" height="32" rx="8" fill="url(#brandGrad)"/>
+    <text x="16" y="21" text-anchor="middle" font-size="16" font-weight="900" fill="#ffffff">T</text>
+    <text x="44" y="22" font-size="18" font-weight="800" fill="#ffffff">TeamBoard</text>
+  </g>
+
+  <!-- Workspace Selector Box -->
+  <g transform="translate(16, 120)">
+    <rect width="208" height="42" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <circle cx="22" cy="21" r="10" fill="#2563eb"/>
+    <text x="22" y="25" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">AC</text>
+    <text x="42" y="20" font-size="13" font-weight="600" fill="#f8fafc">Acme Cloud</text>
+    <text x="42" y="33" font-size="10" fill="#94a3b8">Enterprise • 8 members</text>
+    <path d="M190 20 L195 25 L200 20" stroke="#94a3b8" stroke-width="1.5" fill="none"/>
+  </g>
+
+  <!-- Navigation Menu Items -->
+  <g transform="translate(16, 185)">
+    <!-- Dashboard (Active) -->
+    <rect width="208" height="36" rx="8" fill="#1e293b"/>
+    <rect x="0" y="8" width="4" height="20" rx="2" fill="#3b82f6"/>
+    <circle cx="24" cy="18" r="6" fill="#3b82f6" fill-opacity="0.3"/>
+    <circle cx="24" cy="18" r="3" fill="#3b82f6"/>
+    <text x="44" y="23" font-size="13" font-weight="600" fill="#ffffff">Dashboard</text>
+
+    <!-- Projects -->
+    <g transform="translate(0, 44)">
+      <text x="44" y="23" font-size="13" font-weight="500" fill="#94a3b8">Projects</text>
+      <rect x="176" y="9" width="22" height="18" rx="9" fill="#1e293b"/>
+      <text x="187" y="22" text-anchor="middle" font-size="10" fill="#94a3b8" font-weight="600">5</text>
+    </g>
+
+    <!-- Members -->
+    <g transform="translate(0, 84)">
+      <text x="44" y="23" font-size="13" font-weight="500" fill="#94a3b8">Members &amp; Roles</text>
+      <rect x="176" y="9" width="22" height="18" rx="9" fill="#1e293b"/>
+      <text x="187" y="22" text-anchor="middle" font-size="10" fill="#94a3b8" font-weight="600">8</text>
+    </g>
+
+    <!-- Notifications -->
+    <g transform="translate(0, 124)">
+      <text x="44" y="23" font-size="13" font-weight="500" fill="#94a3b8">Notifications</text>
+      <rect x="176" y="9" width="22" height="18" rx="9" fill="#ef4444"/>
+      <text x="187" y="22" text-anchor="middle" font-size="10" fill="#ffffff" font-weight="700">3</text>
+    </g>
+
+    <!-- Activity -->
+    <g transform="translate(0, 164)">
+      <text x="44" y="23" font-size="13" font-weight="500" fill="#94a3b8">Activity Log</text>
+    </g>
+
+    <!-- Settings -->
+    <g transform="translate(0, 204)">
+      <text x="44" y="23" font-size="13" font-weight="500" fill="#94a3b8">Workspace Settings</text>
+    </g>
+  </g>
+
+  <!-- Sidebar Footer User Profile -->
+  <g transform="translate(16, 746)">
+    <rect width="208" height="54" rx="8" fill="#1e293b" fill-opacity="0.6" stroke="#334155" stroke-width="0.5"/>
+    <circle cx="28" cy="27" r="14" fill="#3b82f6"/>
+    <text x="28" y="32" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">AV</text>
+    <text x="52" y="24" font-size="13" font-weight="600" fill="#f8fafc">Alex Vance</text>
+    <text x="52" y="38" font-size="11" fill="#10b981" font-weight="500">OWNER</text>
+  </g>
+
+  <!-- Main Content Area -->
+  <!-- Header Bar -->
+  <g transform="translate(268, 68)">
+    <text x="0" y="22" font-size="22" font-weight="800" fill="#ffffff">Engineering Executive Dashboard</text>
+    <text x="0" y="42" font-size="13" fill="#94a3b8">Real-time aggregate performance metrics and sprint throughput for Acme Cloud Solutions</text>
+  </g>
+
+  <!-- KPI Metric Cards (Row 1) -->
+  <g transform="translate(268, 130)">
+    <!-- Card 1: Total Issues -->
+    <g transform="translate(0, 0)">
+      <rect width="230" height="96" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="20" y="32" font-size="12" font-weight="600" fill="#94a3b8" letter-spacing="0.5">TOTAL ISSUES</text>
+      <text x="20" y="68" font-size="30" font-weight="800" fill="#ffffff">103</text>
+      <rect x="156" y="20" width="54" height="24" rx="12" fill="#3b82f6" fill-opacity="0.2"/>
+      <text x="183" y="36" text-anchor="middle" font-size="11" font-weight="700" fill="#60a5fa">+14%</text>
+    </g>
+
+    <!-- Card 2: In Progress -->
+    <g transform="translate(250, 0)">
+      <rect width="230" height="96" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="20" y="32" font-size="12" font-weight="600" fill="#94a3b8" letter-spacing="0.5">IN PROGRESS</text>
+      <text x="20" y="68" font-size="30" font-weight="800" fill="#3b82f6">28</text>
+      <rect x="156" y="20" width="54" height="24" rx="12" fill="#3b82f6" fill-opacity="0.2"/>
+      <text x="183" y="36" text-anchor="middle" font-size="11" font-weight="700" fill="#60a5fa">Active</text>
+    </g>
+
+    <!-- Card 3: Resolved Rate -->
+    <g transform="translate(500, 0)">
+      <rect width="230" height="96" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="20" y="32" font-size="12" font-weight="600" fill="#94a3b8" letter-spacing="0.5">COMPLETION RATE</text>
+      <text x="20" y="68" font-size="30" font-weight="800" fill="#10b981">61.2%</text>
+      <rect x="156" y="20" width="54" height="24" rx="12" fill="#10b981" fill-opacity="0.2"/>
+      <text x="183" y="36" text-anchor="middle" font-size="11" font-weight="700" fill="#34d399">42 Done</text>
+    </g>
+
+    <!-- Card 4: Overdue Tasks -->
+    <g transform="translate(750, 0)">
+      <rect width="230" height="96" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="20" y="32" font-size="12" font-weight="600" fill="#94a3b8" letter-spacing="0.5">OVERDUE ISSUES</text>
+      <text x="20" y="68" font-size="30" font-weight="800" fill="#ef4444">4</text>
+      <rect x="150" y="20" width="60" height="24" rx="12" fill="#ef4444" fill-opacity="0.2"/>
+      <text x="180" y="36" text-anchor="middle" font-size="11" font-weight="700" fill="#f87171">Requires Action</text>
+    </g>
+  </g>
+
+  <!-- Row 2: Charts (Donut Gauge + Velocity Wave Chart) -->
+  <g transform="translate(268, 250)">
+    <!-- Left Chart: Pipeline Donut Gauge -->
+    <g transform="translate(0, 0)">
+      <rect width="470" height="310" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="24" y="36" font-size="15" font-weight="700" fill="#ffffff">Pipeline Status Distribution</text>
+      <text x="24" y="54" font-size="12" fill="#94a3b8">Real-time status breakdown across all active sprints</text>
+
+      <!-- SVG Donut Chart -->
+      <g transform="translate(140, 180)">
+        <!-- Track Ring -->
+        <circle cx="0" cy="0" r="82" fill="none" stroke="#0f172a" stroke-width="26"/>
+        <!-- DONE Segment (41%) -->
+        <circle cx="0" cy="0" r="82" fill="none" stroke="#10b981" stroke-width="26" stroke-dasharray="211 515" stroke-dashoffset="0"/>
+        <!-- IN_REVIEW Segment (16%) -->
+        <circle cx="0" cy="0" r="82" fill="none" stroke="#8b5cf6" stroke-width="26" stroke-dasharray="82 515" stroke-dashoffset="-211"/>
+        <!-- IN_PROGRESS Segment (27%) -->
+        <circle cx="0" cy="0" r="82" fill="none" stroke="#3b82f6" stroke-width="26" stroke-dasharray="139 515" stroke-dashoffset="-293"/>
+        <!-- TODO Segment (16%) -->
+        <circle cx="0" cy="0" r="82" fill="none" stroke="#64748b" stroke-width="26" stroke-dasharray="83 515" stroke-dashoffset="-432"/>
+        <!-- Center Text -->
+        <text x="0" y="-4" text-anchor="middle" font-size="28" font-weight="800" fill="#ffffff">61%</text>
+        <text x="0" y="16" text-anchor="middle" font-size="11" font-weight="600" fill="#94a3b8">RESOLVED</text>
+      </g>
+
+      <!-- Legend -->
+      <g transform="translate(300, 95)">
+        <circle cx="10" cy="12" r="5" fill="#10b981"/>
+        <text x="24" y="16" font-size="12" fill="#e2e8f0" font-weight="600">Done (42)</text>
+
+        <circle cx="10" cy="48" r="5" fill="#8b5cf6"/>
+        <text x="24" y="52" font-size="12" fill="#e2e8f0" font-weight="600">In Review (16)</text>
+
+        <circle cx="10" cy="84" r="5" fill="#3b82f6"/>
+        <text x="24" y="88" font-size="12" fill="#e2e8f0" font-weight="600">In Progress (28)</text>
+
+        <circle cx="10" cy="120" r="5" fill="#64748b"/>
+        <text x="24" y="124" font-size="12" fill="#e2e8f0" font-weight="600">To Do (17)</text>
+      </g>
+    </g>
+
+    <!-- Right Chart: Sprint Velocity Wave Chart -->
+    <g transform="translate(490, 0)">
+      <rect width="490" height="310" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="24" y="36" font-size="15" font-weight="700" fill="#ffffff">Sprint Velocity &amp; Throughput</text>
+      <text x="24" y="54" font-size="12" fill="#94a3b8">7-day rolling completed issues vs issues created</text>
+
+      <!-- Wave Graph Area -->
+      <g transform="translate(40, 80)">
+        <!-- Grid lines -->
+        <line x1="0" y1="0" x2="410" y2="0" stroke="#334155" stroke-dasharray="3 3"/>
+        <line x1="0" y1="50" x2="410" y2="50" stroke="#334155" stroke-dasharray="3 3"/>
+        <line x1="0" y1="100" x2="410" y2="100" stroke="#334155" stroke-dasharray="3 3"/>
+        <line x1="0" y1="150" x2="410" y2="150" stroke="#334155"/>
+
+        <!-- Gradient Area Fill -->
+        <path d="M 0 130 C 60 110, 100 80, 140 90 C 180 100, 220 40, 270 45 C 320 50, 360 20, 410 15 L 410 150 L 0 150 Z" fill="url(#velocityGrad)"/>
+
+        <!-- Completed Line -->
+        <path d="M 0 130 C 60 110, 100 80, 140 90 C 180 100, 220 40, 270 45 C 320 50, 360 20, 410 15" fill="none" stroke="#3b82f6" stroke-width="3"/>
+
+        <!-- Created Line -->
+        <path d="M 0 140 C 60 130, 120 120, 180 110 C 240 100, 300 95, 360 85 L 410 80" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4"/>
+
+        <!-- Data Points on Completed Line -->
+        <circle cx="0" cy="130" r="4" fill="#3b82f6"/>
+        <circle cx="140" cy="90" r="4" fill="#3b82f6"/>
+        <circle cx="270" cy="45" r="4" fill="#3b82f6"/>
+        <circle cx="410" cy="15" r="5" fill="#60a5fa" stroke="#ffffff" stroke-width="2"/>
+
+        <!-- Tooltip on peak -->
+        <g transform="translate(350, -18)">
+          <rect width="64" height="24" rx="4" fill="#0f172a" stroke="#3b82f6" stroke-width="1"/>
+          <text x="32" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">32 Done</text>
+        </g>
+
+        <!-- X Axis Labels -->
+        <text x="0" y="174" text-anchor="middle" font-size="11" fill="#64748b">Mon</text>
+        <text x="68" y="174" text-anchor="middle" font-size="11" fill="#64748b">Tue</text>
+        <text x="136" y="174" text-anchor="middle" font-size="11" fill="#64748b">Wed</text>
+        <text x="204" y="174" text-anchor="middle" font-size="11" fill="#64748b">Thu</text>
+        <text x="272" y="174" text-anchor="middle" font-size="11" fill="#64748b">Fri</text>
+        <text x="340" y="174" text-anchor="middle" font-size="11" fill="#64748b">Sat</text>
+        <text x="410" y="174" text-anchor="middle" font-size="11" fill="#3b82f6" font-weight="700">Sun (Today)</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Row 3: Team Workload Capacity (Bottom Panel) -->
+  <g transform="translate(268, 580)">
+    <rect width="980" height="210" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="24" y="34" font-size="15" font-weight="700" fill="#ffffff">Team Engineering Capacity &amp; Workload</text>
+    <text x="24" y="52" font-size="12" fill="#94a3b8">Active issue load per developer against optimal capacity threshold</text>
+
+    <!-- Developer 1: Sarah Connor -->
+    <g transform="translate(24, 76)">
+      <circle cx="16" cy="14" r="14" fill="#3b82f6"/>
+      <text x="16" y="19" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">SC</text>
+      <text x="40" y="14" font-size="13" font-weight="600" fill="#f8fafc">Sarah Connor</text>
+      <text x="40" y="28" font-size="11" fill="#94a3b8">Tech Lead • 12 active tasks</text>
+      <!-- Progress Bar -->
+      <rect x="220" y="10" width="560" height="12" rx="6" fill="#0f172a"/>
+      <rect x="220" y="10" width="440" height="12" rx="6" fill="#3b82f6"/>
+      <rect x="800" y="6" width="70" height="22" rx="11" fill="#3b82f6" fill-opacity="0.2"/>
+      <text x="835" y="21" text-anchor="middle" font-size="11" font-weight="700" fill="#60a5fa">Balanced</text>
+    </g>
+
+    <!-- Developer 2: David Kim -->
+    <g transform="translate(24, 126)">
+      <circle cx="16" cy="14" r="14" fill="#10b981"/>
+      <text x="16" y="19" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">DK</text>
+      <text x="40" y="14" font-size="13" font-weight="600" fill="#f8fafc">David Kim</text>
+      <text x="40" y="28" font-size="11" fill="#94a3b8">Senior Backend • 18 active tasks</text>
+      <!-- Progress Bar -->
+      <rect x="220" y="10" width="560" height="12" rx="6" fill="#0f172a"/>
+      <rect x="220" y="10" width="520" height="12" rx="6" fill="#f59e0b"/>
+      <rect x="800" y="6" width="70" height="22" rx="11" fill="#f59e0b" fill-opacity="0.2"/>
+      <text x="835" y="21" text-anchor="middle" font-size="11" font-weight="700" fill="#fbbf24">Heavy</text>
+    </g>
+
+    <!-- Developer 3: Marcus Wright -->
+    <g transform="translate(24, 174)">
+      <circle cx="16" cy="14" r="14" fill="#8b5cf6"/>
+      <text x="16" y="19" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">MW</text>
+      <text x="40" y="14" font-size="13" font-weight="600" fill="#f8fafc">Marcus Wright</text>
+      <text x="40" y="28" font-size="11" fill="#94a3b8">Full Stack • 8 active tasks</text>
+      <!-- Progress Bar -->
+      <rect x="220" y="10" width="560" height="12" rx="6" fill="#0f172a"/>
+      <rect x="220" y="10" width="280" height="12" rx="6" fill="#10b981"/>
+      <rect x="800" y="6" width="70" height="22" rx="11" fill="#10b981" fill-opacity="0.2"/>
+      <text x="835" y="21" text-anchor="middle" font-size="11" font-weight="700" fill="#34d399">Optimal</text>
+    </g>
+  </g>
+</svg>

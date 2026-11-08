@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 820" width="1280" height="820" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <!-- Outer Window Container -->
+  <rect width="1280" height="820" rx="14" fill="#020617"/>
+  <rect x="0.5" y="0.5" width="1279" height="819" rx="13.5" fill="none" stroke="#334155" stroke-opacity="0.6"/>
+
+  <!-- macOS Window Titlebar -->
+  <path d="M0 14 C0 6.268 6.268 0 14 0 L1266 0 C1273.732 0 1280 6.268 1280 14 L1280 44 L0 44 Z" fill="#0f172a"/>
+  <line x1="0" y1="44" x2="1280" y2="44" stroke="#1e293b" stroke-width="1"/>
+  
+  <circle cx="22" cy="22" r="6.5" fill="#ef4444"/>
+  <circle cx="42" cy="22" r="6.5" fill="#f59e0b"/>
+  <circle cx="62" cy="22" r="6.5" fill="#10b981"/>
+
+  <rect x="420" y="10" width="440" height="24" rx="6" fill="#1e293b" fill-opacity="0.7"/>
+  <text x="640" y="26" text-anchor="middle" font-size="12" fill="#94a3b8" font-weight="500">teamboard.io / members — Acme Cloud Solutions</text>
+
+  <!-- Sidebar -->
+  <rect x="0" y="44" width="220" height="776" fill="#0b1120"/>
+  <line x1="220" y1="44" x2="220" y2="820" stroke="#1e293b" stroke-width="1"/>
+
+  <g transform="translate(16, 120)">
+    <text x="16" y="20" font-size="13" font-weight="500" fill="#94a3b8">Dashboard</text>
+    <text x="16" y="58" font-size="13" font-weight="500" fill="#94a3b8">Projects</text>
+    <!-- Members (Active) -->
+    <rect y="76" width="188" height="34" rx="6" fill="#1e293b"/>
+    <rect x="0" y="83" width="3" height="20" rx="1.5" fill="#3b82f6"/>
+    <text x="16" y="98" font-size="13" font-weight="600" fill="#ffffff">Members &amp; Roles</text>
+    <text x="16" y="136" font-size="13" font-weight="500" fill="#94a3b8">Notifications</text>
+    <text x="16" y="174" font-size="13" font-weight="500" fill="#94a3b8">Activity Log</text>
+  </g>
+
+  <!-- Main Content Header -->
+  <g transform="translate(260, 68)">
+    <text x="0" y="24" font-size="22" font-weight="800" fill="#ffffff">Organization Members &amp; RBAC Permissions</text>
+    <text x="0" y="46" font-size="13" fill="#94a3b8">Manage team member roles, permissions, and generate tokenized invite links.</text>
+    <!-- Primary Invite Button -->
+    <rect x="850" y="14" width="140" height="36" rx="8" fill="#2563eb"/>
+    <text x="920" y="37" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">+ Invite Teammate</text>
+  </g>
+
+  <!-- Members Table (Left / Center) -->
+  <g transform="translate(260, 140)">
+    <rect width="990" height="380" rx="10" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+    
+    <!-- Table Header -->
+    <rect width="990" height="42" rx="10 10 0 0" fill="#1e293b"/>
+    <text x="24" y="26" font-size="11" font-weight="700" fill="#94a3b8" letter-spacing="0.5">MEMBER</text>
+    <text x="280" y="26" font-size="11" font-weight="700" fill="#94a3b8" letter-spacing="0.5">EMAIL ADDRESS</text>
+    <text x="560" y="26" font-size="11" font-weight="700" fill="#94a3b8" letter-spacing="0.5">ROLE</text>
+    <text x="740" y="26" font-size="11" font-weight="700" fill="#94a3b8" letter-spacing="0.5">JOINED DATE</text>
+    <text x="910" y="26" font-size="11" font-weight="700" fill="#94a3b8" letter-spacing="0.5">ACTIONS</text>
+
+    <!-- Row 1: Owner -->
+    <g transform="translate(0, 42)">
+      <line x1="0" y1="56" x2="990" y2="56" stroke="#1e293b" stroke-width="1"/>
+      <circle cx="36" cy="28" r="14" fill="#3b82f6"/>
+      <text x="36" y="33" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">AV</text>
+      <text x="62" y="33" font-size="13" font-weight="600" fill="#ffffff">Alex Vance</text>
+      <text x="280" y="33" font-size="13" fill="#cbd5e1">owner@teamboard.io</text>
+      <rect x="560" y="16" width="68" height="24" rx="12" fill="#3b82f6" fill-opacity="0.2"/>
+      <text x="594" y="32" text-anchor="middle" font-size="11" font-weight="700" fill="#60a5fa">OWNER</text>
+      <text x="740" y="33" font-size="12" fill="#94a3b8">Oct 15, 2026</text>
+      <text x="920" y="33" font-size="12" fill="#64748b">—</text>
+    </g>
+
+    <!-- Row 2: Admin -->
+    <g transform="translate(0, 98)">
+      <line x1="0" y1="56" x2="990" y2="56" stroke="#1e293b" stroke-width="1"/>
+      <circle cx="36" cy="28" r="14" fill="#8b5cf6"/>
+      <text x="36" y="33" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">AD</text>
+      <text x="62" y="33" font-size="13" font-weight="600" fill="#ffffff">Admin User</text>
+      <text x="280" y="33" font-size="13" fill="#cbd5e1">admin@teamboard.io</text>
+      <rect x="560" y="16" width="68" height="24" rx="12" fill="#8b5cf6" fill-opacity="0.2"/>
+      <text x="594" y="32" text-anchor="middle" font-size="11" font-weight="700" fill="#c084fc">ADMIN</text>
+      <text x="740" y="33" font-size="12" fill="#94a3b8">Oct 16, 2026</text>
+      <text x="920" y="33" font-size="13" fill="#3b82f6" font-weight="600">Change Role</text>
+    </g>
+
+    <!-- Row 3: Sarah Connor (Member) -->
+    <g transform="translate(0, 154)">
+      <line x1="0" y1="56" x2="990" y2="56" stroke="#1e293b" stroke-width="1"/>
+      <circle cx="36" cy="28" r="14" fill="#10b981"/>
+      <text x="36" y="33" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">SC</text>
+      <text x="62" y="33" font-size="13" font-weight="600" fill="#ffffff">Sarah Connor</text>
+      <text x="280" y="33" font-size="13" fill="#cbd5e1">sarah.connor@teamboard.io</text>
+      <rect x="560" y="16" width="76" height="24" rx="12" fill="#10b981" fill-opacity="0.2"/>
+      <text x="598" y="32" text-anchor="middle" font-size="11" font-weight="700" fill="#34d399">MEMBER</text>
+      <text x="740" y="33" font-size="12" fill="#94a3b8">Oct 18, 2026</text>
+      <text x="920" y="33" font-size="13" fill="#ef4444" font-weight="500">Remove</text>
+    </g>
+
+    <!-- Row 4: David Kim (Member) -->
+    <g transform="translate(0, 210)">
+      <line x1="0" y1="56" x2="990" y2="56" stroke="#1e293b" stroke-width="1"/>
+      <circle cx="36" cy="28" r="14" fill="#f59e0b"/>
+      <text x="36" y="33" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">DK</text>
+      <text x="62" y="33" font-size="13" font-weight="600" fill="#ffffff">David Kim</text>
+      <text x="280" y="33" font-size="13" fill="#cbd5e1">david.kim@teamboard.io</text>
+      <rect x="560" y="16" width="76" height="24" rx="12" fill="#10b981" fill-opacity="0.2"/>
+      <text x="598" y="32" text-anchor="middle" font-size="11" font-weight="700" fill="#34d399">MEMBER</text>
+      <text x="740" y="33" font-size="12" fill="#94a3b8">Oct 20, 2026</text>
+      <text x="920" y="33" font-size="13" fill="#ef4444" font-weight="500">Remove</text>
+    </g>
+  </g>
+
+  <!-- Invite Teammate Token Link Modal (Bottom Overlay) -->
+  <g transform="translate(360, 540)">
+    <rect width="790" height="240" rx="12" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="28" y="36" font-size="16" font-weight="700" fill="#ffffff">Generated Invitation Link (Tokenized TTL 7 Days)</text>
+    <text x="28" y="56" font-size="12" fill="#94a3b8">Send this direct link to your teammate. No SMTP email server required.</text>
+
+    <!-- Link Box -->
+    <rect x="28" y="74" width="610" height="42" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <text x="44" y="100" font-size="12" font-family="monospace" fill="#60a5fa">http://localhost:3000/invite/accept?token=9b7f2a1c-84d3-48e0-b998-12fe98d7ca44</text>
+    <!-- Copy Button -->
+    <rect x="650" y="74" width="112" height="42" rx="6" fill="#2563eb"/>
+    <text x="706" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Copy Link</text>
+
+    <!-- RBAC Guard Notice -->
+    <rect x="28" y="136" width="734" height="74" rx="8" fill="#0f172a" stroke="#334155" stroke-width="0.8"/>
+    <text x="44" y="162" font-size="12" font-weight="700" fill="#f8fafc">Multi-Tenant RBAC Guard Invariants Enforced:</text>
+    <text x="44" y="180" font-size="11" fill="#94a3b8">• Only Workspace Owners and Admins can create invitation tokens.</text>
+    <text x="44" y="196" font-size="11" fill="#94a3b8">• Workspace must retain at least one active OWNER; the last owner cannot be demoted or removed.</text>
+  </g>
+</svg>

@@ -1,0 +1,205 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 820" width="1280" height="820" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Window Container -->
+  <rect width="1280" height="820" rx="14" fill="#020617"/>
+  <rect x="0.5" y="0.5" width="1279" height="819" rx="13.5" fill="none" stroke="#334155" stroke-opacity="0.6"/>
+
+  <!-- macOS Window Titlebar -->
+  <path d="M0 14 C0 6.268 6.268 0 14 0 L1266 0 C1273.732 0 1280 6.268 1280 14 L1280 44 L0 44 Z" fill="#0f172a"/>
+  <line x1="0" y1="44" x2="1280" y2="44" stroke="#1e293b" stroke-width="1"/>
+  
+  <circle cx="22" cy="22" r="6.5" fill="#ef4444"/>
+  <circle cx="42" cy="22" r="6.5" fill="#f59e0b"/>
+  <circle cx="62" cy="22" r="6.5" fill="#10b981"/>
+
+  <rect x="420" y="10" width="440" height="24" rx="6" fill="#1e293b" fill-opacity="0.7"/>
+  <text x="640" y="26" text-anchor="middle" font-size="12" fill="#94a3b8" font-weight="500">teamboard.io / projects / 1 / board — Core Platform Modernization</text>
+
+  <!-- Sidebar -->
+  <rect x="0" y="44" width="220" height="776" fill="#0b1120"/>
+  <line x1="220" y1="44" x2="220" y2="820" stroke="#1e293b" stroke-width="1"/>
+
+  <g transform="translate(20, 68)">
+    <rect width="28" height="28" rx="7" fill="url(#brandGrad)"/>
+    <text x="14" y="19" text-anchor="middle" font-size="15" font-weight="900" fill="#ffffff">T</text>
+    <text x="38" y="20" font-size="16" font-weight="800" fill="#ffffff">TeamBoard</text>
+  </g>
+
+  <!-- Nav links -->
+  <g transform="translate(16, 120)">
+    <text x="16" y="20" font-size="13" font-weight="500" fill="#94a3b8">Dashboard</text>
+    <!-- Projects (Active) -->
+    <rect y="36" width="188" height="34" rx="6" fill="#1e293b"/>
+    <rect x="0" y="43" width="3" height="20" rx="1.5" fill="#3b82f6"/>
+    <text x="16" y="58" font-size="13" font-weight="600" fill="#ffffff">Projects</text>
+    <text x="16" y="98" font-size="13" font-weight="500" fill="#94a3b8">Members &amp; Roles</text>
+    <text x="16" y="136" font-size="13" font-weight="500" fill="#94a3b8">Notifications</text>
+    <text x="16" y="174" font-size="13" font-weight="500" fill="#94a3b8">Activity Log</text>
+  </g>
+
+  <!-- Main Kanban Board Area -->
+  <!-- Top Navigation & Project Info -->
+  <g transform="translate(244, 64)">
+    <text x="0" y="16" font-size="12" font-weight="600" fill="#3b82f6">PROJECTS &gt; CORE PLATFORM MODERNIZATION</text>
+    <text x="0" y="42" font-size="22" font-weight="800" fill="#ffffff">Sprint 14 Agile Board</text>
+    <!-- Right Button: Create Issue -->
+    <rect x="850" y="16" width="140" height="36" rx="8" fill="#2563eb"/>
+    <text x="920" y="39" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">+ Create Issue</text>
+  </g>
+
+  <!-- Jira Quick-Filter Bar -->
+  <g transform="translate(244, 128)">
+    <rect width="996" height="52" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+    
+    <!-- Search Box -->
+    <rect x="14" y="10" width="220" height="32" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="32" y="31" font-size="12" fill="#64748b">Search issues...</text>
+
+    <!-- Only My Issues Quick Filter (Active) -->
+    <rect x="246" y="10" width="130" height="32" rx="6" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6" stroke-width="1"/>
+    <circle cx="260" cy="26" r="4" fill="#3b82f6"/>
+    <text x="272" y="31" font-size="12" font-weight="600" fill="#60a5fa">Only my issues</text>
+
+    <!-- Assignee Filter Dropdown -->
+    <rect x="388" y="10" width="140" height="32" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="402" y="31" font-size="12" fill="#cbd5e1">All Assignees</text>
+    <path d="M512 24 L516 28 L520 24" stroke="#94a3b8" stroke-width="1.5" fill="none"/>
+
+    <!-- Priority Filter Dropdown -->
+    <rect x="540" y="10" width="130" height="32" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="554" y="31" font-size="12" fill="#cbd5e1">All Priorities</text>
+    <path d="M654 24 L658 28 L662 24" stroke="#94a3b8" stroke-width="1.5" fill="none"/>
+
+    <!-- Counter badge -->
+    <rect x="682" y="14" width="150" height="24" rx="12" fill="#1e293b"/>
+    <text x="757" y="30" text-anchor="middle" font-size="11" font-weight="600" fill="#94a3b8">Showing 24 of 103 issues</text>
+  </g>
+
+  <!-- 4 Kanban Columns -->
+  <!-- Column 1: TO DO -->
+  <g transform="translate(244, 196)">
+    <rect width="236" height="600" rx="10" fill="#0b1120" stroke="#1e293b" stroke-width="1"/>
+    <text x="14" y="28" font-size="12" font-weight="800" fill="#94a3b8" letter-spacing="0.5">TO DO</text>
+    <rect x="64" y="14" width="22" height="18" rx="9" fill="#1e293b"/>
+    <text x="75" y="27" text-anchor="middle" font-size="11" font-weight="700" fill="#cbd5e1">7</text>
+
+    <!-- Card 1 -->
+    <g transform="translate(10, 44)">
+      <rect width="216" height="114" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <!-- Key + Priority -->
+      <text x="12" y="22" font-size="11" font-weight="700" fill="#3b82f6">TASK-102</text>
+      <!-- Priority Red Urgent -->
+      <polygon points="196,15 200,10 204,15" fill="#ef4444"/>
+      <polygon points="196,21 200,16 204,21" fill="#ef4444"/>
+      <!-- Title -->
+      <text x="12" y="44" font-size="13" font-weight="600" fill="#f8fafc">Redis Token Bucket</text>
+      <text x="12" y="60" font-size="13" font-weight="600" fill="#f8fafc">Rate Limiter Script</text>
+      <!-- Labels -->
+      <rect x="12" y="80" width="56" height="18" rx="4" fill="#3b82f6" fill-opacity="0.2"/>
+      <text x="40" y="93" text-anchor="middle" font-size="10" font-weight="600" fill="#60a5fa">Security</text>
+      <!-- Assignee -->
+      <circle cx="196" cy="89" r="10" fill="#8b5cf6"/>
+      <text x="196" y="93" text-anchor="middle" font-size="9" font-weight="700" fill="#ffffff">SC</text>
+    </g>
+
+    <!-- Card 2 -->
+    <g transform="translate(10, 168)">
+      <rect width="216" height="114" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="12" y="22" font-size="11" font-weight="700" fill="#3b82f6">TASK-98</text>
+      <!-- Priority Orange High -->
+      <polygon points="196,17 200,12 204,17" fill="#f59e0b"/>
+      <text x="12" y="44" font-size="13" font-weight="600" fill="#f8fafc">Setup Dead-Letter</text>
+      <text x="12" y="60" font-size="13" font-weight="600" fill="#f8fafc">Queue for Kafka</text>
+      <rect x="12" y="80" width="46" height="18" rx="4" fill="#8b5cf6" fill-opacity="0.2"/>
+      <text x="35" y="93" text-anchor="middle" font-size="10" font-weight="600" fill="#c084fc">Kafka</text>
+      <circle cx="196" cy="89" r="10" fill="#3b82f6"/>
+      <text x="196" y="93" text-anchor="middle" font-size="9" font-weight="700" fill="#ffffff">DK</text>
+    </g>
+  </g>
+
+  <!-- Column 2: IN PROGRESS (Active Drag-Over Highlight) -->
+  <g transform="translate(494, 196)">
+    <rect width="236" height="600" rx="10" fill="#0b1120" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <text x="14" y="28" font-size="12" font-weight="800" fill="#3b82f6" letter-spacing="0.5">IN PROGRESS</text>
+    <rect x="110" y="14" width="22" height="18" rx="9" fill="#2563eb"/>
+    <text x="121" y="27" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">9</text>
+
+    <!-- Card 1 -->
+    <g transform="translate(10, 44)">
+      <rect width="216" height="124" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="12" y="22" font-size="11" font-weight="700" fill="#3b82f6">TASK-88</text>
+      <polygon points="196,15 200,10 204,15" fill="#ef4444"/>
+      <polygon points="196,21 200,16 204,21" fill="#ef4444"/>
+      <text x="12" y="44" font-size="13" font-weight="600" fill="#f8fafc">Transactional Outbox</text>
+      <text x="12" y="60" font-size="13" font-weight="600" fill="#f8fafc">Relay Publisher Job</text>
+      <rect x="12" y="74" width="80" height="16" rx="4" fill="#ef4444" fill-opacity="0.2"/>
+      <text x="52" y="86" text-anchor="middle" font-size="10" font-weight="700" fill="#f87171">Due Tomorrow</text>
+      <rect x="12" y="96" width="60" height="18" rx="4" fill="#10b981" fill-opacity="0.2"/>
+      <text x="42" y="109" text-anchor="middle" font-size="10" font-weight="600" fill="#34d399">Backend</text>
+      <circle cx="196" cy="105" r="10" fill="#10b981"/>
+      <text x="196" y="109" text-anchor="middle" font-size="9" font-weight="700" fill="#ffffff">AV</text>
+    </g>
+
+    <!-- Card 2 -->
+    <g transform="translate(10, 178)">
+      <rect width="216" height="114" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="12" y="22" font-size="11" font-weight="700" fill="#3b82f6">TASK-74</text>
+      <rect x="194" y="14" width="10" height="2" fill="#f59e0b"/>
+      <rect x="194" y="18" width="10" height="2" fill="#f59e0b"/>
+      <text x="12" y="44" font-size="13" font-weight="600" fill="#f8fafc">Multi-Tenant Tenant</text>
+      <text x="12" y="60" font-size="13" font-weight="600" fill="#f8fafc">Security Check Aspect</text>
+      <rect x="12" y="80" width="56" height="18" rx="4" fill="#3b82f6" fill-opacity="0.2"/>
+      <text x="40" y="93" text-anchor="middle" font-size="10" font-weight="600" fill="#60a5fa">Security</text>
+      <circle cx="196" cy="89" r="10" fill="#f59e0b"/>
+      <text x="196" y="93" text-anchor="middle" font-size="9" font-weight="700" fill="#ffffff">MW</text>
+    </g>
+  </g>
+
+  <!-- Column 3: IN REVIEW -->
+  <g transform="translate(744, 196)">
+    <rect width="236" height="600" rx="10" fill="#0b1120" stroke="#1e293b" stroke-width="1"/>
+    <text x="14" y="28" font-size="12" font-weight="800" fill="#8b5cf6" letter-spacing="0.5">CODE REVIEW</text>
+    <rect x="114" y="14" width="22" height="18" rx="9" fill="#8b5cf6" fill-opacity="0.3"/>
+    <text x="125" y="27" text-anchor="middle" font-size="11" font-weight="700" fill="#c084fc">5</text>
+
+    <!-- Card 1 -->
+    <g transform="translate(10, 44)">
+      <rect width="216" height="114" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="12" y="22" font-size="11" font-weight="700" fill="#3b82f6">TASK-62</text>
+      <polygon points="196,17 200,12 204,17" fill="#f59e0b"/>
+      <text x="12" y="44" font-size="13" font-weight="600" fill="#f8fafc">Optimistic Lock @Version</text>
+      <text x="12" y="60" font-size="13" font-weight="600" fill="#f8fafc">409 Conflict Handling</text>
+      <rect x="12" y="80" width="56" height="18" rx="4" fill="#10b981" fill-opacity="0.2"/>
+      <text x="40" y="93" text-anchor="middle" font-size="10" font-weight="600" fill="#34d399">Database</text>
+      <circle cx="196" cy="89" r="10" fill="#3b82f6"/>
+      <text x="196" y="93" text-anchor="middle" font-size="9" font-weight="700" fill="#ffffff">DK</text>
+    </g>
+  </g>
+
+  <!-- Column 4: DONE -->
+  <g transform="translate(994, 196)">
+    <rect width="236" height="600" rx="10" fill="#0b1120" stroke="#1e293b" stroke-width="1"/>
+    <text x="14" y="28" font-size="12" font-weight="800" fill="#10b981" letter-spacing="0.5">COMPLETED</text>
+    <rect x="110" y="14" width="22" height="18" rx="9" fill="#10b981" fill-opacity="0.3"/>
+    <text x="121" y="27" text-anchor="middle" font-size="11" font-weight="700" fill="#34d399">12</text>
+
+    <!-- Card 1 -->
+    <g transform="translate(10, 44)">
+      <rect width="216" height="114" rx="8" fill="#1e293b" fill-opacity="0.7" stroke="#334155" stroke-width="1"/>
+      <text x="12" y="22" font-size="11" font-weight="700" fill="#94a3b8">TASK-50</text>
+      <rect x="194" y="15" width="10" height="2" fill="#94a3b8"/>
+      <text x="12" y="44" font-size="13" font-weight="600" fill="#94a3b8" text-decoration="line-through">Nginx Load Balancer</text>
+      <text x="12" y="60" font-size="13" font-weight="600" fill="#94a3b8" text-decoration="line-through">Replicas Configuration</text>
+      <rect x="12" y="80" width="50" height="18" rx="4" fill="#334155" fill-opacity="0.4"/>
+      <text x="37" y="93" text-anchor="middle" font-size="10" font-weight="600" fill="#94a3b8">DevOps</text>
+      <circle cx="196" cy="89" r="10" fill="#64748b"/>
+      <text x="196" y="93" text-anchor="middle" font-size="9" font-weight="700" fill="#ffffff">AV</text>
+    </g>
+  </g>
+</svg>

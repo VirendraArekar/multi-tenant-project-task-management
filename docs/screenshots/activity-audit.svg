@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 820" width="1280" height="820" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <!-- Outer Window Container -->
+  <rect width="1280" height="820" rx="14" fill="#020617"/>
+  <rect x="0.5" y="0.5" width="1279" height="819" rx="13.5" fill="none" stroke="#334155" stroke-opacity="0.6"/>
+
+  <!-- macOS Window Titlebar -->
+  <path d="M0 14 C0 6.268 6.268 0 14 0 L1266 0 C1273.732 0 1280 6.268 1280 14 L1280 44 L0 44 Z" fill="#0f172a"/>
+  <line x1="0" y1="44" x2="1280" y2="44" stroke="#1e293b" stroke-width="1"/>
+  
+  <circle cx="22" cy="22" r="6.5" fill="#ef4444"/>
+  <circle cx="42" cy="22" r="6.5" fill="#f59e0b"/>
+  <circle cx="62" cy="22" r="6.5" fill="#10b981"/>
+
+  <rect x="420" y="10" width="440" height="24" rx="6" fill="#1e293b" fill-opacity="0.7"/>
+  <text x="640" y="26" text-anchor="middle" font-size="12" fill="#94a3b8" font-weight="500">teamboard.io / activity — Acme Cloud Solutions Audit Trail</text>
+
+  <!-- Sidebar -->
+  <rect x="0" y="44" width="220" height="776" fill="#0b1120"/>
+  <line x1="220" y1="44" x2="220" y2="820" stroke="#1e293b" stroke-width="1"/>
+
+  <g transform="translate(16, 120)">
+    <text x="16" y="20" font-size="13" font-weight="500" fill="#94a3b8">Dashboard</text>
+    <text x="16" y="58" font-size="13" font-weight="500" fill="#94a3b8">Projects</text>
+    <text x="16" y="98" font-size="13" font-weight="500" fill="#94a3b8">Members &amp; Roles</text>
+    <text x="16" y="136" font-size="13" font-weight="500" fill="#94a3b8">Notifications</text>
+    <!-- Activity (Active) -->
+    <rect y="156" width="188" height="34" rx="6" fill="#1e293b"/>
+    <rect x="0" y="163" width="3" height="20" rx="1.5" fill="#3b82f6"/>
+    <text x="16" y="178" font-size="13" font-weight="600" fill="#ffffff">Activity Log</text>
+  </g>
+
+  <!-- Main Content Header -->
+  <g transform="translate(260, 68)">
+    <text x="0" y="24" font-size="22" font-weight="800" fill="#ffffff">Organization Audit Trail &amp; Event Stream</text>
+    <text x="0" y="46" font-size="13" fill="#94a3b8">Immutable record of tenant events powered by Kafka transactional outbox stream.</text>
+  </g>
+
+  <!-- Activity Stream Feed -->
+  <g transform="translate(260, 140)">
+    <!-- Event 1: TASK_MOVED -->
+    <g transform="translate(0, 0)">
+      <rect width="980" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <circle cx="36" cy="45" r="16" fill="#3b82f6" fill-opacity="0.2"/>
+      <text x="36" y="50" text-anchor="middle" font-size="12" font-weight="800" fill="#60a5fa">⇄</text>
+      <text x="70" y="36" font-size="14" font-weight="700" fill="#ffffff">Sarah Connor moved TASK-42 from &quot;To Do&quot; to &quot;In Progress&quot;</text>
+      <text x="70" y="56" font-size="12" fill="#94a3b8">Project: Core Platform Modernization • Position: 524288.0 • Version: 2</text>
+      <rect x="850" y="24" width="105" height="22" rx="4" fill="#0f172a"/>
+      <text x="902" y="39" text-anchor="middle" font-size="11" font-weight="600" fill="#64748b">10 mins ago</text>
+      <rect x="70" y="66" width="90" height="16" rx="3" fill="#3b82f6" fill-opacity="0.15"/>
+      <text x="115" y="78" text-anchor="middle" font-size="10" font-weight="700" fill="#3b82f6">TASK_MOVED</text>
+    </g>
+
+    <!-- Event 2: COMMENT_ADDED -->
+    <g transform="translate(0, 106)">
+      <rect width="980" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <circle cx="36" cy="45" r="16" fill="#10b981" fill-opacity="0.2"/>
+      <text x="36" y="50" text-anchor="middle" font-size="12" font-weight="800" fill="#34d399">💬</text>
+      <text x="70" y="36" font-size="14" font-weight="700" fill="#ffffff">David Kim commented on TASK-42</text>
+      <text x="70" y="56" font-size="12" fill="#cbd5e1">&quot;The Lua script is ready in redis-limiter.lua and verified with test burst traffic.&quot;</text>
+      <rect x="850" y="24" width="105" height="22" rx="4" fill="#0f172a"/>
+      <text x="902" y="39" text-anchor="middle" font-size="11" font-weight="600" fill="#64748b">2 hours ago</text>
+      <rect x="70" y="66" width="105" height="16" rx="3" fill="#10b981" fill-opacity="0.15"/>
+      <text x="122" y="78" text-anchor="middle" font-size="10" font-weight="700" fill="#34d399">COMMENT_ADDED</text>
+    </g>
+
+    <!-- Event 3: MEMBER_INVITED -->
+    <g transform="translate(0, 212)">
+      <rect width="980" height="90" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <circle cx="36" cy="45" r="16" fill="#8b5cf6" fill-opacity="0.2"/>
+      <text x="36" y="50" text-anchor="middle" font-size="12" font-weight="800" fill="#c084fc">✉</text>
+      <text x="70" y="36" font-size="14" font-weight="700" fill="#ffffff">Admin User generated invitation token for priya.sharma@teamboard.io</text>
+      <text x="70" y="56" font-size="12" fill="#94a3b8">Assigned Role: MEMBER • Token TTL: 7 Days • Scope: Acme Cloud Solutions</text>
+      <rect x="850" y="24" width="105" height="22" rx="4" fill="#0f172a"/>
+      <text x="902" y="39" text-anchor="middle" font-size="11" font-weight="600" fill="#64748b">5 hours ago</text>
+      <rect x="70" y="66" width="115" height="16" rx="3" fill="#8b5cf6" fill-opacity="0.15"/>
+      <text x="127" y="78" text-anchor="middle" font-size="10" font-weight="700" fill="#c084fc">MEMBER_INVITED</text>
+    </g>
+
+    <!-- Event 4: TASK_OVERDUE -->
+    <g transform="translate(0, 318)">
+      <rect width="980" height="90" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1" stroke-opacity="0.6"/>
+      <circle cx="36" cy="45" r="16" fill="#ef4444" fill-opacity="0.2"/>
+      <text x="36" y="50" text-anchor="middle" font-size="12" font-weight="800" fill="#f87171">⏰</text>
+      <text x="70" y="36" font-size="14" font-weight="700" fill="#ffffff">Scheduled Overdue Daemon flagged TASK-19 as Overdue</text>
+      <text x="70" y="56" font-size="12" fill="#94a3b8">Due Date: 2026-11-08 • Status: TODO • Assignee: Jordan Lee • In-app alert emitted</text>
+      <rect x="850" y="24" width="105" height="22" rx="4" fill="#0f172a"/>
+      <text x="902" y="39" text-anchor="middle" font-size="11" font-weight="600" fill="#64748b">1 day ago</text>
+      <rect x="70" y="66" width="105" height="16" rx="3" fill="#ef4444" fill-opacity="0.15"/>
+      <text x="122" y="78" text-anchor="middle" font-size="10" font-weight="700" fill="#f87171">TASK_OVERDUE</text>
+    </g>
+  </g>
+</svg>
