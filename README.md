@@ -45,7 +45,20 @@ docker compose up --build
 - **Swagger / OpenAPI**: [http://localhost:80/swagger-ui.html](http://localhost:80/swagger-ui.html)
 - **Actuator Health & Metrics**: [http://localhost:80/actuator/health](http://localhost:80/actuator/health)
 - **Prometheus Dashboard**: [http://localhost:9090](http://localhost:9090)
-- **Grafana Metrics**: [http://localhost:3001](http://localhost:3001) (`admin` / `admin`)
+- **Grafana Metrics**: [http://localhost:3001](http://localhost:3001) (`admin` / password from `.env`)
+
+### 3. Pre-Seeded Demo Accounts (100+ Live Tasks & Projects)
+The database automatically seeds 100+ realistic engineering tasks across Kanban columns, multiple projects, activity logs, and pre-configured role-based user accounts:
+
+| Role | Email | Password | Organization / Tenant |
+| :--- | :--- | :--- | :--- |
+| **Owner** | `owner@teamboard.io` | `Password123!` | Acme Cloud Solutions |
+| **Admin** | `admin@teamboard.io` | `Password123!` | Acme Cloud Solutions |
+| **Member** | `user@teamboard.io` | `Password123!` | Acme Cloud Solutions |
+| **Teammate** | `sarah.connor@teamboard.io` | `Password123!` | Acme Cloud Solutions |
+| **Teammate** | `david.kim@teamboard.io` | `Password123!` | Acme Cloud Solutions |
+
+*You can also click **Get Started** on the landing page to register brand-new organizations and users dynamically.*
 
 ---
 
