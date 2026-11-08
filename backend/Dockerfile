@@ -17,6 +17,9 @@ RUN mvn clean package -DskipTests -B
 FROM eclipse-temurin:25-jre AS runner
 WORKDIR /app
 
+# Install curl and wget for health checks
+RUN apt-get update && apt-get install -y --no-install-recommends curl wget && rm -rf /var/lib/apt/lists/*
+
 # Create non-root user for security
 RUN groupadd -g 1001 teamboard && \
     useradd -u 1001 -g teamboard -s /bin/bash -m teamboard
